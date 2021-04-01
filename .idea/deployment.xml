@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="root@10.60.38.173:10022">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/k8s_info_transform" local="$PROJECT_DIR$" web="/k8s_info_transform" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

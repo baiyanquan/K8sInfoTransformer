@@ -1,0 +1,109 @@
+env:
+  id: ///metadata///uid
+  name: ///metadata///name
+  prefix: http://www.huawei.com/uvc/pod/
+  deployment_prefix: http://www.huawei.com/uvc/deployment/
+  replicaset_prefix: http://www.huawei.com/uvc/replicaset/
+
+arg:
+  - time
+
+base:
+  id: ///metadata///uid
+  name: $$prefix$$///metadata///name
+  stime: ///metadata///creationTimestamp
+  etime: 1645539492
+  label: ///kind
+  namespace: ///metadata///namespace
+
+property:
+  configuration:
+    startTime: ///status///startTime
+    podIP: ///status///podIP
+    hostIP: ///status///hostIP
+  query:
+    resource:
+
+    traffic:
+
+    business:
+
+  query_range:
+    resource:
+
+    traffic:
+
+    business:
+
+relationship:
+  is_deployed_in:
+    entity_type: Node
+    ///property///configuration///hostIP: ///status///hostIP
+  r_supports:
+    entity_type: ReplicaSet
+    ///name: $$replicaset_prefix$$///metadata///labels///name
+  d_supports:
+    entity_type: Deployment
+    ///name: $$deployment_prefix$$///metadata///labels///name
+
+
+
+sub_entity:
+  env:
+    id: ///containerID
+    name: ///name
+    prefix: http://www.huawei.com/uvc/container/
+
+  arg:
+    - time
+
+  base:
+    id: ///containerID
+    name: $$prefix$$///name
+    stime: ///state///running///startedAt
+    etime: ""
+    label: Container
+
+  property:
+    configuration:
+      image: ///image
+      ready: ///ready
+      restartCount: ///restartCount
+    query:
+      resource:
+        status:
+          type: k8s_info
+          data:
+            id: $$id$$
+            position: status
+        start-result:
+          type: logging
+          queryStatement: http://10.60.38.174:31606/*/_search
+          data:
+            "query":
+              "match":
+                "readFromDocValues": "true"
+          position: aggregatable
+      traffic:
+
+      business:
+
+    query_range:
+      resource:
+        start-result:
+          type: logging
+          queryStatement: http://10.60.38.174:31606/*/_search
+          data:
+            "query":
+              "match":
+                "readFromDocValues": "true"
+      traffic:
+
+      business:
+
+  relationship:
+
+  position: ///status///containerStatuses
+
+  sub_relationship: contains
+

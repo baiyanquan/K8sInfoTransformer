@@ -1,0 +1,4043 @@
+{
+    "data": [
+        {
+            "id": "5c15d9f7-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/node/192.168.199.31",
+            "stime": 1610340533,
+            "etime": 1645539492,
+            "label": "Node",
+            "property": {
+                "configuration": {
+                    "addresses": [
+                        {
+                            "address": "192.168.199.31",
+                            "type": "InternalIP"
+                        },
+                        {
+                            "address": "192.168.199.31",
+                            "type": "Hostname"
+                        }
+                    ],
+                    "nodeInfo": {
+                        "architecture": "amd64",
+                        "bootID": "1d5322a5-8953-439d-ba92-be9da0862bb6",
+                        "containerRuntimeVersion": "docker://18.9.2",
+                        "kernelVersion": "4.4.0-150-generic",
+                        "kubeProxyVersion": "v1.13.5",
+                        "kubeletVersion": "v1.13.5",
+                        "machineID": "abd300f46e9e40c61924233f5cf66ddf",
+                        "operatingSystem": "linux",
+                        "osImage": "Ubuntu 16.04.6 LTS",
+                        "systemUUID": "808CCAC7-0DE9-1410-B9D8-D95AED6B4C2E"
+                    },
+                    "hostIP": "192.168.199.31"
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.31:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.31:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "6d63850f-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/node/192.168.199.32",
+            "stime": 1610340562,
+            "etime": 1645539492,
+            "label": "Node",
+            "property": {
+                "configuration": {
+                    "addresses": [
+                        {
+                            "address": "192.168.199.32",
+                            "type": "InternalIP"
+                        },
+                        {
+                            "address": "192.168.199.32",
+                            "type": "Hostname"
+                        }
+                    ],
+                    "nodeInfo": {
+                        "architecture": "amd64",
+                        "bootID": "758df496-d1dd-4940-ab96-c579dcc7a127",
+                        "containerRuntimeVersion": "docker://18.9.2",
+                        "kernelVersion": "4.4.0-150-generic",
+                        "kubeProxyVersion": "v1.13.5",
+                        "kubeletVersion": "v1.13.5",
+                        "machineID": "ed74cf5abf7cc0434c9130d85cf6766f",
+                        "operatingSystem": "linux",
+                        "osImage": "Ubuntu 16.04.6 LTS",
+                        "systemUUID": "00FCA99E-0DE9-1410-968C-AF7AC3E87C67"
+                    },
+                    "hostIP": "192.168.199.42"
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.32:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.32:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "6d4d3253-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/node/192.168.199.33",
+            "stime": 1610340562,
+            "etime": 1645539492,
+            "label": "Node",
+            "property": {
+                "configuration": {
+                    "addresses": [
+                        {
+                            "address": "192.168.199.33",
+                            "type": "InternalIP"
+                        },
+                        {
+                            "address": "192.168.199.33",
+                            "type": "Hostname"
+                        }
+                    ],
+                    "nodeInfo": {
+                        "architecture": "amd64",
+                        "bootID": "f0e42b76-0f6c-4735-abb5-7fbaf0c3ba19",
+                        "containerRuntimeVersion": "docker://18.9.2",
+                        "kernelVersion": "4.4.0-150-generic",
+                        "kubeProxyVersion": "v1.13.5",
+                        "kubeletVersion": "v1.13.5",
+                        "machineID": "101bfa0a2ff505ffb24580d55cf67c76",
+                        "operatingSystem": "linux",
+                        "osImage": "Ubuntu 16.04.6 LTS",
+                        "systemUUID": "80367C13-0CE9-1410-B4E5-E960B471C4D3"
+                    },
+                    "hostIP": "192.168.199.43"
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.33:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.33:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "6d468509-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/node/192.168.199.34",
+            "stime": 1610340561,
+            "etime": 1645539492,
+            "label": "Node",
+            "property": {
+                "configuration": {
+                    "addresses": [
+                        {
+                            "address": "192.168.199.34",
+                            "type": "InternalIP"
+                        },
+                        {
+                            "address": "192.168.199.34",
+                            "type": "Hostname"
+                        }
+                    ],
+                    "nodeInfo": {
+                        "architecture": "amd64",
+                        "bootID": "6f782822-8539-44d1-9396-1fbb523a1efd",
+                        "containerRuntimeVersion": "docker://18.9.2",
+                        "kernelVersion": "4.4.0-150-generic",
+                        "kubeProxyVersion": "v1.13.5",
+                        "kubeletVersion": "v1.13.5",
+                        "machineID": "b7506713d7bf27760827e2a85cf687cf",
+                        "operatingSystem": "linux",
+                        "osImage": "Ubuntu 16.04.6 LTS",
+                        "systemUUID": "803F649B-10E9-1410-86D1-E91B3D499C4F"
+                    },
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.34:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.34:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "6d4c4dbc-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/node/192.168.199.35",
+            "stime": 1610340562,
+            "etime": 1645539492,
+            "label": "Node",
+            "property": {
+                "configuration": {
+                    "addresses": [
+                        {
+                            "address": "192.168.199.35",
+                            "type": "InternalIP"
+                        },
+                        {
+                            "address": "192.168.199.35",
+                            "type": "Hostname"
+                        }
+                    ],
+                    "nodeInfo": {
+                        "architecture": "amd64",
+                        "bootID": "cbdd7b2e-6a94-44c1-a11d-7b132a5a9793",
+                        "containerRuntimeVersion": "docker://18.9.2",
+                        "kernelVersion": "4.4.0-150-generic",
+                        "kubeProxyVersion": "v1.13.5",
+                        "kubeletVersion": "v1.13.5",
+                        "machineID": "769a09ab6cbbad55670db0305cf68e24",
+                        "operatingSystem": "linux",
+                        "osImage": "Ubuntu 16.04.6 LTS",
+                        "systemUUID": "80BB8118-F5E8-1410-A58C-EA73D6BA2490"
+                    },
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.35:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max (sum by (cpu) (irate(node_cpu_seconds_total{cluster=\"\", job=\"node-exporter\", mode!=\"idle\", instance=\"192.168.199.35:9100\"}[2m])))*100",
+                            "unit": "percent",
+                            "name": "cpu-utilization"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=max(node_memory_MemTotal_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_MemFree_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Buffers_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"}  - node_memory_Cached_bytes{cluster=\"\", job=\"node-exporter\", instance=\"192.168.199.31:9100\"})",
+                            "unit": "GiB",
+                            "name": "mem-usage"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d90ac4b2-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/carts",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d8a99bad-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/carts-db",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 27017,
+                            "protocol": "TCP",
+                            "targetPort": 27017
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d9834705-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/catalogue",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d9487233-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/catalogue-db",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 3306,
+                            "protocol": "TCP",
+                            "targetPort": 3306
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da302c85-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/front-end",
+            "stime": 1610340744,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "nodePort": 22625,
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 8079
+                        }
+                    ],
+                    "type": "LoadBalancer"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da06dd55-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/front-end-external",
+            "stime": 1610340744,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "nodePort": 30001,
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 8079
+                        }
+                    ],
+                    "type": "NodePort"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "daa47640-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/orders",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da5f2a19-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/orders-db",
+            "stime": 1610340744,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 27017,
+                            "protocol": "TCP",
+                            "targetPort": 27017
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dae3b3b9-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/payment",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "db47ac97-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/queue-master",
+            "stime": 1610340746,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dbcf8c7a-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/rabbitmq",
+            "stime": 1610340747,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "rabbitmq",
+                            "port": 5672,
+                            "protocol": "TCP",
+                            "targetPort": 5672
+                        },
+                        {
+                            "name": "rabbitmq-mangement",
+                            "port": 15672,
+                            "protocol": "TCP",
+                            "targetPort": 15672
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dc4fc169-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/session-db",
+            "stime": 1610340748,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 6379,
+                            "protocol": "TCP",
+                            "targetPort": 6379
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dd188cf0-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/shipping",
+            "stime": 1610340749,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "df6285c4-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/user",
+            "stime": 1610340753,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "name": "sock-port",
+                            "port": 80,
+                            "protocol": "TCP",
+                            "targetPort": 80
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "de0e06a1-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/service/user-db",
+            "stime": 1610340751,
+            "etime": 1645539492,
+            "label": "Service",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "ports": [
+                        {
+                            "port": 27017,
+                            "protocol": "TCP",
+                            "targetPort": 27017
+                        }
+                    ],
+                    "type": "ClusterIP"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"4.+|5.+\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(4xx/5xx)"
+                        },
+                        {
+                            "type": "metrics",
+                            "queryStatement": "http://10.60.38.174:31003/api/v1/query_range?query=sum(rate(request_duration_seconds_count{service=\"catalogue\",status_code=~\"2..\",route!=\"metrics\"}[1m])) * 100",
+                            "unit": "ops",
+                            "name": "qps(2xx)"
+                        }
+                    ],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d8c78f6a-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/carts",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:22Z",
+                                "lastUpdateTime": "2021-01-11T12:52:22Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d8905356-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/carts-db",
+            "stime": 1610340741,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:22Z",
+                                "lastUpdateTime": "2021-01-11T12:52:22Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d962e3ea-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/catalogue",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:23Z",
+                                "lastUpdateTime": "2021-01-11T12:52:23Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d92756c3-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/catalogue-db",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:23Z",
+                                "lastUpdateTime": "2021-01-11T12:52:23Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d99c0d3c-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/front-end",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 5,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-31T11:28:45Z",
+                                "lastUpdateTime": "2021-01-31T11:28:45Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 5,
+                        "replicas": 5,
+                        "updatedReplicas": 5
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da7a7c28-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/orders",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 5,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-31T11:27:32Z",
+                                "lastUpdateTime": "2021-01-31T11:27:32Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 5,
+                        "replicas": 5,
+                        "updatedReplicas": 5
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da3dd195-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/orders-db",
+            "stime": 1610340744,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:24Z",
+                                "lastUpdateTime": "2021-01-11T12:52:24Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dac1e225-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/payment",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:25Z",
+                                "lastUpdateTime": "2021-01-11T12:52:25Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "db091aca-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/queue-master",
+            "stime": 1610340746,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:26Z",
+                                "lastUpdateTime": "2021-01-11T12:52:26Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "db9584bf-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/rabbitmq",
+            "stime": 1610340747,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:27Z",
+                                "lastUpdateTime": "2021-01-11T12:52:27Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dc079922-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/session-db",
+            "stime": 1610340747,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:27Z",
+                                "lastUpdateTime": "2021-01-11T12:52:27Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dca1cc04-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/shipping",
+            "stime": 1610340748,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:29Z",
+                                "lastUpdateTime": "2021-01-11T12:52:29Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "deabfda3-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/user",
+            "stime": 1610340752,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:32Z",
+                                "lastUpdateTime": "2021-01-11T12:52:32Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dd81e616-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/deployment/user-db",
+            "stime": 1610340750,
+            "etime": 1645539492,
+            "label": "Deployment",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2021-01-11T12:52:30Z",
+                                "lastUpdateTime": "2021-01-11T12:52:30Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    },
+                    "strategy": {
+                        "rollingUpdate": {
+                            "maxSurge": 1,
+                            "maxUnavailable": 1
+                        },
+                        "type": "RollingUpdate"
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d8cddf8a-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/carts-74778887d9",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d890ce8e-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/carts-db-64664d58b4",
+            "stime": 1610340741,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d92aa543-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/catalogue-db-68d96b947f",
+            "stime": 1610340742,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d9663a1e-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/catalogue-f4449f87b",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "d9a7a83b-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/front-end-8996498c8",
+            "stime": 1610340743,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 5,
+                        "fullyLabeledReplicas": 5,
+                        "observedGeneration": 1,
+                        "readyReplicas": 5,
+                        "replicas": 5
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da7e3123-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/orders-87dc8fd66",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 5,
+                        "fullyLabeledReplicas": 5,
+                        "observedGeneration": 1,
+                        "readyReplicas": 5,
+                        "replicas": 5
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "da3e5d51-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/orders-db-65d66754d8",
+            "stime": 1610340744,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dac28306-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/payment-5f7f45778c",
+            "stime": 1610340745,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "db0a3957-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/queue-master-59476f74b4",
+            "stime": 1610340746,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "db96b175-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/rabbitmq-6969b46cd9",
+            "stime": 1610340747,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dc081119-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/session-db-5b69d76c6b",
+            "stime": 1610340747,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dcb935b8-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/shipping-67778bc856",
+            "stime": 1610340748,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "deac8cc1-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/user-6b864745d6",
+            "stime": 1610340752,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "dd828a4a-540b-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/replicaset/user-db-8fc7587b6",
+            "stime": 1610340750,
+            "etime": 1645539492,
+            "label": "ReplicaSet",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "status": {
+                        "availableReplicas": 1,
+                        "fullyLabeledReplicas": 1,
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1
+                    }
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://72b3977f0f63128c08d3e82807dc1d958ce3d8ed6bdfc795904c310a7a6d4a2b",
+            "name": "http://www.huawei.com/uvc/container/carts",
+            "stime": 1612063525,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/carts:0.4.8",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://72b3977f0f63128c08d3e82807dc1d958ce3d8ed6bdfc795904c310a7a6d4a2b', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://f302c6cd6b303b559cfc6f70ac9007143cb6997c715cb72bfe90880441567bf8",
+            "name": "http://www.huawei.com/uvc/container/carts-db",
+            "stime": 1612063657,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/mongo:latest",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://f302c6cd6b303b559cfc6f70ac9007143cb6997c715cb72bfe90880441567bf8', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://c026bfd3db0d47b129df378261dd0264ee2e905c6deb8d14d31b95db67e08194",
+            "name": "http://www.huawei.com/uvc/container/catalogue-db",
+            "stime": 1612063667,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/catalogue-db:0.3.0",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://c026bfd3db0d47b129df378261dd0264ee2e905c6deb8d14d31b95db67e08194', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://8a05430e51df5846b6b1f801b6f5000f691026ec9e24bd7384432fba413c4ab1",
+            "name": "http://www.huawei.com/uvc/container/catalogue",
+            "stime": 1612063547,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/catalogue:0.3.5",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://8a05430e51df5846b6b1f801b6f5000f691026ec9e24bd7384432fba413c4ab1', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://f4ee9cf554319964379175f79932562cbd0737bc871ca1a98fbcb66bbac05578",
+            "name": "http://www.huawei.com/uvc/container/front-end",
+            "stime": 1612063617,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://f4ee9cf554319964379175f79932562cbd0737bc871ca1a98fbcb66bbac05578', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://3b4bfbfd49bb021c60bab04c017a443dba9332885b222906c0c61b128a25a860",
+            "name": "http://www.huawei.com/uvc/container/front-end",
+            "stime": 1612063517,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://3b4bfbfd49bb021c60bab04c017a443dba9332885b222906c0c61b128a25a860', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://4cd8e30c1c1eb3053e2938fcc4529627ab1bcabcdee37cb3199b5fe9b8eab3b0",
+            "name": "http://www.huawei.com/uvc/container/front-end",
+            "stime": 1612063588,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://4cd8e30c1c1eb3053e2938fcc4529627ab1bcabcdee37cb3199b5fe9b8eab3b0', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://c29d8a6e9036cbedcc92bc32ba84c83425abcc15a6df7957d3c1bed245b1ebb7",
+            "name": "http://www.huawei.com/uvc/container/front-end",
+            "stime": 1612063536,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://c29d8a6e9036cbedcc92bc32ba84c83425abcc15a6df7957d3c1bed245b1ebb7', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://4b4b01bbbbe7ba958a89d44792dab6940e4f0e5af35250b128363e95b0caa0b2",
+            "name": "http://www.huawei.com/uvc/container/front-end",
+            "stime": 1612063529,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://4b4b01bbbbe7ba958a89d44792dab6940e4f0e5af35250b128363e95b0caa0b2', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://5620f978de3db132a2e8f5ea66b637db006dc5b396b9be76ad4547660057e2aa",
+            "name": "http://www.huawei.com/uvc/container/orders",
+            "stime": 1612063599,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://5620f978de3db132a2e8f5ea66b637db006dc5b396b9be76ad4547660057e2aa', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://8c89802e1c4b3f6b3068da2b235cf2fc73def5e658e5492f1aca8d97e6f78c85",
+            "name": "http://www.huawei.com/uvc/container/orders",
+            "stime": 1612063672,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://8c89802e1c4b3f6b3068da2b235cf2fc73def5e658e5492f1aca8d97e6f78c85', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://9c943abd82c856806fe7f23008d95e21c850b8136725ce23d51286d8223ffa60",
+            "name": "http://www.huawei.com/uvc/container/orders",
+            "stime": 1612063543,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://9c943abd82c856806fe7f23008d95e21c850b8136725ce23d51286d8223ffa60', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://b13c12d2df8dbff109e637f25d0119b9d033f65f108319c4e77142929e064692",
+            "name": "http://www.huawei.com/uvc/container/orders",
+            "stime": 1612063541,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://b13c12d2df8dbff109e637f25d0119b9d033f65f108319c4e77142929e064692', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://5fff711eb03898717be539e690222080a98469247392de270d6806e5d796736c",
+            "name": "http://www.huawei.com/uvc/container/orders",
+            "stime": 1612063516,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://5fff711eb03898717be539e690222080a98469247392de270d6806e5d796736c', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://7e342e258e7647a952cc0df2cd86dd42953e10acbbdc3a31762991b06d8eeed9",
+            "name": "http://www.huawei.com/uvc/container/orders-db",
+            "stime": 1612063618,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/mongo:latest",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://7e342e258e7647a952cc0df2cd86dd42953e10acbbdc3a31762991b06d8eeed9', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://a2dc9ccfd2d338bdaf93d2ac8cfaff1ed296139c7c10f6b2ce50157f61dacd34",
+            "name": "http://www.huawei.com/uvc/container/payment",
+            "stime": 1612063669,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/payment:0.4.3",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://a2dc9ccfd2d338bdaf93d2ac8cfaff1ed296139c7c10f6b2ce50157f61dacd34', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://9b0f40746a5d897143e1236ff41387ef227e5d5f8bf11223d1634318c7ebcc5e",
+            "name": "http://www.huawei.com/uvc/container/queue-master",
+            "stime": 1612063592,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/queue-master:0.3.1",
+                    "ready": true,
+                    "restartCount": 2
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://9b0f40746a5d897143e1236ff41387ef227e5d5f8bf11223d1634318c7ebcc5e', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://15758a273b0ea4ef5ccbb84f50504307ae1821709ae861ccf6e2d68de579841c",
+            "name": "http://www.huawei.com/uvc/container/rabbitmq",
+            "stime": 1612063760,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/rabbitmq:3.6.8-management",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://15758a273b0ea4ef5ccbb84f50504307ae1821709ae861ccf6e2d68de579841c', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://37fbcbaacd26f729e557a5efec8413028f1f08ee64bc135912f28c95a73caebc",
+            "name": "http://www.huawei.com/uvc/container/session-db",
+            "stime": 1612063552,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/redis:alpine",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://37fbcbaacd26f729e557a5efec8413028f1f08ee64bc135912f28c95a73caebc', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://f64e5cab8997230ea5aa6c62cf007d9ff076d61d74ae9e36f2728a38b3df1d41",
+            "name": "http://www.huawei.com/uvc/container/shipping",
+            "stime": 1612063667,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/shipping:0.4.8",
+                    "ready": true,
+                    "restartCount": 1
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://f64e5cab8997230ea5aa6c62cf007d9ff076d61d74ae9e36f2728a38b3df1d41', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://62a718c333405e109ae88d53bad5b046e5221947b08cf375ba86520a085c0cb3",
+            "name": "http://www.huawei.com/uvc/container/user",
+            "stime": 1612063651,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/user:0.4.7",
+                    "ready": true,
+                    "restartCount": 0
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://62a718c333405e109ae88d53bad5b046e5221947b08cf375ba86520a085c0cb3', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "docker://d40c40c172253d38de844fb4798b0c6442d5c67eb4ec7ceb3a08d591099f9455",
+            "name": "http://www.huawei.com/uvc/container/user-db",
+            "stime": 1612063774,
+            "etime": "",
+            "label": "Container",
+            "property": {
+                "configuration": {
+                    "image": "192.168.199.2:5001/weaveworksdemos/user-db:0.3.0",
+                    "ready": true,
+                    "restartCount": 2
+                },
+                "query": {
+                    "resource": [
+                        {
+                            "type": "k8s_info",
+                            "data": "{'id': 'docker://d40c40c172253d38de844fb4798b0c6442d5c67eb4ec7ceb3a08d591099f9455', 'position': 'status'}",
+                            "name": "status"
+                        },
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "position": "aggregatable",
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [
+                        {
+                            "type": "logging",
+                            "queryStatement": "http://10.60.38.174:31606/*/_search",
+                            "data": {
+                                "query": {
+                                    "match": {
+                                        "readFromDocValues": "true"
+                                    }
+                                }
+                            },
+                            "name": "start-result"
+                        }
+                    ],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "a29ddf85-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/carts-74778887d9-xt6ts",
+            "stime": 1612063362,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:22:43Z",
+                    "podIP": "172.20.1.108",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad773185-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/carts-db-64664d58b4-7bncm",
+            "stime": 1612063381,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:02Z",
+                    "podIP": "172.20.2.119",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad335875-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/catalogue-db-68d96b947f-95dsl",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.126",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "a2d39460-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/catalogue-f4449f87b-f5gcq",
+            "stime": 1612063363,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:22:43Z",
+                    "podIP": "172.20.1.120",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad553c24-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/front-end-8996498c8-57q6z",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:01Z",
+                    "podIP": "172.20.2.120",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "a2da2448-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/front-end-8996498c8-c8j6b",
+            "stime": 1612063363,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:22:44Z",
+                    "podIP": "172.20.1.106",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "bfaa1733-5de3-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/front-end-8996498c8-cjp94",
+            "stime": 1611423031,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-24T01:30:32Z",
+                    "podIP": "172.20.2.109",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad5e2567-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/front-end-8996498c8-czh9g",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.113",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad5eb30b-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/front-end-8996498c8-g27lv",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.112",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad53e2c6-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-87dc8fd66-26gs9",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:01Z",
+                    "podIP": "172.20.2.114",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "bfdd5320-5de3-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-87dc8fd66-67w57",
+            "stime": 1611423032,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-24T01:30:32Z",
+                    "podIP": "172.20.2.131",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad54e7d0-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-87dc8fd66-rrd7f",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.116",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad393746-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-87dc8fd66-v9gfh",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.114",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "a2d33358-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-87dc8fd66-xjmsm",
+            "stime": 1612063363,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:22:43Z",
+                    "podIP": "172.20.1.103",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad3466a7-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/orders-db-65d66754d8-snqzv",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:24:32Z",
+                    "podIP": "172.20.1.117",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "bfaa1a69-5de3-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/payment-5f7f45778c-trvjk",
+            "stime": 1611423031,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-24T01:30:32Z",
+                    "podIP": "172.20.2.129",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "bfaa21c1-5de3-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/queue-master-59476f74b4-jkctq",
+            "stime": 1611423031,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-24T01:30:32Z",
+                    "podIP": "172.20.2.108",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad812ff1-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/rabbitmq-6969b46cd9-sqpms",
+            "stime": 1612063381,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:02Z",
+                    "podIP": "172.20.2.127",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "a2ba9a1b-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/session-db-5b69d76c6b-h8kpf",
+            "stime": 1612063363,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:22:43Z",
+                    "podIP": "172.20.1.119",
+                    "hostIP": "192.168.199.34"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "bfcaafa7-5de3-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/shipping-67778bc856-9fcs6",
+            "stime": 1611423032,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-24T01:30:32Z",
+                    "podIP": "172.20.2.128",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad55104b-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/user-6b864745d6-5dt75",
+            "stime": 1612063380,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:01Z",
+                    "podIP": "172.20.2.118",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        },
+        {
+            "id": "ad866a14-63b6-11eb-9859-002481eeda4c",
+            "name": "http://www.huawei.com/uvc/pod/user-db-8fc7587b6-wk766",
+            "stime": 1612063381,
+            "etime": 1645539492,
+            "label": "Pod",
+            "namespace": "sock-shop",
+            "property": {
+                "configuration": {
+                    "startTime": "2021-01-31T11:23:02Z",
+                    "podIP": "172.20.2.116",
+                    "hostIP": "192.168.199.35"
+                },
+                "query": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                },
+                "query_range": {
+                    "resource": [],
+                    "traffic": [],
+                    "business": []
+                }
+            }
+        }
+    ]
+}

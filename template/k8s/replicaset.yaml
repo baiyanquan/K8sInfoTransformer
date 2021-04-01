@@ -1,0 +1,39 @@
+env:
+  id: ///metadata///uid
+  name: ///metadata///name
+  prefix: http://www.huawei.com/uvc/replicaset/
+  service_prefix: http://www.huawei.com/uvc/service/
+
+arg:
+  - time
+
+base:
+  id: ///metadata///uid
+  name: $$prefix$$///metadata///name
+  stime: ///metadata///creationTimestamp
+  etime: 1645539492
+  label: ///kind
+  namespace: ///metadata///namespace
+
+property:
+  configuration:
+    status: ///status
+  query:
+    resource:
+
+    traffic:
+
+    business:
+
+  query_range:
+    resource:
+
+    traffic:
+
+    business:
+
+
+relationship:
+  r_provides:
+    entity_type: Service
+    ///name: $$service_prefix$$///metadata///labels///name

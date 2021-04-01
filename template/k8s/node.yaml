@@ -1,0 +1,52 @@
+env:
+  id: ///metadata///uid
+  name: ///metadata///name
+  prefix: http://www.huawei.com/uvc/node/
+  query: http://10.60.38.174:31003/api/v1/query?query=
+  query_range: http://10.60.38.174:31003/api/v1/query_range?query=
+
+arg:
+  - time
+
+base:
+  id: ///metadata///uid
+  name: $$prefix$$///metadata///name
+  stime: ///metadata///creationTimestamp
+  etime: 1645539492
+  label: ///kind
+
+property:
+  configuration:
+    addresses: ///status///addresses
+    nodeInfo: ///status///nodeInfo
+    hostIP: ///metadata///annotations///flannel.alpha.coreos.com/public-ip
+  query:
+    resource:
+      cpu-utilization:
+        type: metrics
+        queryStatement: $$query$$max (sum by (cpu) (irate(node_cpu_seconds_total{cluster="", job="node-exporter", mode!="idle", instance="$$name$$:9100"}[2m])))*100
+        unit: percent
+      mem-usage:
+        type: metrics
+        queryStatement: $$query$$max(node_memory_MemTotal_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_MemFree_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Buffers_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Cached_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"})
+        unit: GiB
+    traffic:
+
+    business:
+
+  query_range:
+    resource:
+      cpu-utilization:
+        type: metrics
+        queryStatement: $$query_range$$max (sum by (cpu) (irate(node_cpu_seconds_total{cluster="", job="node-exporter", mode!="idle", instance="$$name$$:9100"}[2m])))*100
+        unit: percent
+      mem-usage:
+        type: metrics
+        queryStatement: $$query_range$$max(node_memory_MemTotal_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_MemFree_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Buffers_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Cached_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"})
+        unit: GiB
+    traffic:
+
+    business:
+
+
+relationship:

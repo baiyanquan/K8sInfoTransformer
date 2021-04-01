@@ -1,0 +1,585 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"carts\"},\"name\":\"carts\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"carts\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:22Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "carts"
+                },
+                "name": "carts",
+                "namespace": "sock-shop",
+                "resourceVersion": "855",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/carts",
+                "uid": "d90ac4b2-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.142.201",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "carts"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"carts-db\"},\"name\":\"carts-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":27017,\"targetPort\":27017}],\"selector\":{\"name\":\"carts-db\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:22Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "carts-db"
+                },
+                "name": "carts-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "833",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/carts-db",
+                "uid": "d8a99bad-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.243.128",
+                "ports": [
+                    {
+                        "port": 27017,
+                        "protocol": "TCP",
+                        "targetPort": 27017
+                    }
+                ],
+                "selector": {
+                    "name": "carts-db"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"catalogue\"},\"name\":\"catalogue\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"catalogue\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:23Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "catalogue"
+                },
+                "name": "catalogue",
+                "namespace": "sock-shop",
+                "resourceVersion": "892",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/catalogue",
+                "uid": "d9834705-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.48.232",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "catalogue"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"catalogue-db\"},\"name\":\"catalogue-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":3306,\"targetPort\":3306}],\"selector\":{\"name\":\"catalogue-db\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:23Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "catalogue-db"
+                },
+                "name": "catalogue-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "873",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/catalogue-db",
+                "uid": "d9487233-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.175.61",
+                "ports": [
+                    {
+                        "port": 3306,
+                        "protocol": "TCP",
+                        "targetPort": 3306
+                    }
+                ],
+                "selector": {
+                    "name": "catalogue-db"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"front-end\"},\"name\":\"front-end\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8079}],\"selector\":{\"name\":\"front-end\"},\"type\":\"LoadBalancer\"}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:24Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "front-end"
+                },
+                "name": "front-end",
+                "namespace": "sock-shop",
+                "resourceVersion": "940",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/front-end",
+                "uid": "da302c85-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.100.31",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "nodePort": 22625,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8079
+                    }
+                ],
+                "selector": {
+                    "name": "front-end"
+                },
+                "sessionAffinity": "None",
+                "type": "LoadBalancer"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"front-end\"},\"name\":\"front-end-external\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"nodePort\":30001,\"port\":80,\"protocol\":\"TCP\",\"targetPort\":8079}],\"selector\":{\"name\":\"front-end\"},\"type\":\"NodePort\"}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:24Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "front-end"
+                },
+                "name": "front-end-external",
+                "namespace": "sock-shop",
+                "resourceVersion": "929",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/front-end-external",
+                "uid": "da06dd55-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.125.114",
+                "externalTrafficPolicy": "Cluster",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "nodePort": 30001,
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 8079
+                    }
+                ],
+                "selector": {
+                    "name": "front-end"
+                },
+                "sessionAffinity": "None",
+                "type": "NodePort"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"orders\"},\"name\":\"orders\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"orders\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:25Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "orders"
+                },
+                "name": "orders",
+                "namespace": "sock-shop",
+                "resourceVersion": "984",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/orders",
+                "uid": "daa47640-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.122.248",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "orders"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"orders-db\"},\"name\":\"orders-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":27017,\"targetPort\":27017}],\"selector\":{\"name\":\"orders-db\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:24Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "orders-db"
+                },
+                "name": "orders-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "955",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/orders-db",
+                "uid": "da5f2a19-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.10.72",
+                "ports": [
+                    {
+                        "port": 27017,
+                        "protocol": "TCP",
+                        "targetPort": 27017
+                    }
+                ],
+                "selector": {
+                    "name": "orders-db"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"payment\"},\"name\":\"payment\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"payment\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:25Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "payment"
+                },
+                "name": "payment",
+                "namespace": "sock-shop",
+                "resourceVersion": "1012",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/payment",
+                "uid": "dae3b3b9-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.62.66",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "payment"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{\"prometheus.io/path\":\"/prometheus\"},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"queue-master\"},\"name\":\"queue-master\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"queue-master\"}}}\n",
+                    "prometheus.io/path": "/prometheus"
+                },
+                "creationTimestamp": "2021-01-11T12:52:26Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "queue-master"
+                },
+                "name": "queue-master",
+                "namespace": "sock-shop",
+                "resourceVersion": "1034",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/queue-master",
+                "uid": "db47ac97-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.124.187",
+                "ports": [
+                    {
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "queue-master"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"rabbitmq\"},\"name\":\"rabbitmq\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"rabbitmq\",\"port\":5672,\"targetPort\":5672},{\"name\":\"rabbitmq-mangement\",\"port\":15672,\"targetPort\":15672}],\"selector\":{\"name\":\"rabbitmq\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:27Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "rabbitmq"
+                },
+                "name": "rabbitmq",
+                "namespace": "sock-shop",
+                "resourceVersion": "1053",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/rabbitmq",
+                "uid": "dbcf8c7a-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.53.224",
+                "ports": [
+                    {
+                        "name": "rabbitmq",
+                        "port": 5672,
+                        "protocol": "TCP",
+                        "targetPort": 5672
+                    },
+                    {
+                        "name": "rabbitmq-mangement",
+                        "port": 15672,
+                        "protocol": "TCP",
+                        "targetPort": 15672
+                    }
+                ],
+                "selector": {
+                    "name": "rabbitmq"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"session-db\"},\"name\":\"session-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":6379,\"targetPort\":6379}],\"selector\":{\"name\":\"session-db\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:28Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "session-db"
+                },
+                "name": "session-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "1075",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/session-db",
+                "uid": "dc4fc169-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.32.37",
+                "ports": [
+                    {
+                        "port": 6379,
+                        "protocol": "TCP",
+                        "targetPort": 6379
+                    }
+                ],
+                "selector": {
+                    "name": "session-db"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"shipping\"},\"name\":\"shipping\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"shipping\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:29Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "shipping"
+                },
+                "name": "shipping",
+                "namespace": "sock-shop",
+                "resourceVersion": "1097",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/shipping",
+                "uid": "dd188cf0-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.4.131",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "shipping"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"user\"},\"name\":\"user\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"name\":\"sock-port\",\"port\":80,\"targetPort\":80}],\"selector\":{\"name\":\"user\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:33Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "user"
+                },
+                "name": "user",
+                "namespace": "sock-shop",
+                "resourceVersion": "1143",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/user",
+                "uid": "df6285c4-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.106.97",
+                "ports": [
+                    {
+                        "name": "sock-port",
+                        "port": 80,
+                        "protocol": "TCP",
+                        "targetPort": 80
+                    }
+                ],
+                "selector": {
+                    "name": "user"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Service",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{},\"labels\":{\"k8s-app\":\"sock-shop\",\"name\":\"user-db\"},\"name\":\"user-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"ports\":[{\"port\":27017,\"targetPort\":27017}],\"selector\":{\"name\":\"user-db\"}}}\n"
+                },
+                "creationTimestamp": "2021-01-11T12:52:31Z",
+                "labels": {
+                    "k8s-app": "sock-shop",
+                    "name": "user-db"
+                },
+                "name": "user-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "1116",
+                "selfLink": "/api/v1/namespaces/sock-shop/services/user-db",
+                "uid": "de0e06a1-540b-11eb-9859-002481eeda4c"
+            },
+            "spec": {
+                "clusterIP": "10.68.51.20",
+                "ports": [
+                    {
+                        "port": 27017,
+                        "protocol": "TCP",
+                        "targetPort": 27017
+                    }
+                ],
+                "selector": {
+                    "name": "user-db"
+                },
+                "sessionAffinity": "None",
+                "type": "ClusterIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

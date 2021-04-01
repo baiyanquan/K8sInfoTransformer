@@ -1,0 +1,55 @@
+env:
+  id: ///metadata///uid
+  name: ///metadata///name
+  prefix: http://www.huawei.com/uvc/service/
+  prom_query: http://10.60.38.174:31003/api/v1/query?query=
+  prom_query_range: http://10.60.38.174:31003/api/v1/query_range?query=
+  __interval: 1m
+
+
+arg:
+  - time
+
+base:
+  id: ///metadata///uid
+  name: $$prefix$$///metadata///name
+  stime: ///metadata///creationTimestamp
+  etime: 1645539492
+  label: ///kind
+  namespace: ///metadata///namespace
+
+property:
+  configuration:
+    ports: ///spec///ports
+    type: ///spec///type
+  query:
+    resource:
+
+    traffic:
+      qps(4xx/5xx):
+        type: metrics
+        queryStatement: $$prom_query$$sum(rate(request_duration_seconds_count{service="catalogue",status_code=~"4.+|5.+",route!="metrics"}[1m])) * 100
+        unit: ops
+      qps(2xx):
+        type: metrics
+        queryStatement: $$prom_query$$sum(rate(request_duration_seconds_count{service="catalogue",status_code=~"2..",route!="metrics"}[1m])) * 100
+        unit: ops
+    business:
+
+  query_range:
+    resource:
+
+    traffic:
+      qps(4xx/5xx):
+        type: metrics
+        queryStatement: $$prom_query_range$$sum(rate(request_duration_seconds_count{service="catalogue",status_code=~"4.+|5.+",route!="metrics"}[1m])) * 100
+        unit: ops
+      qps(2xx):
+        type: metrics
+        queryStatement: $$prom_query_range$$sum(rate(request_duration_seconds_count{service="catalogue",status_code=~"2..",route!="metrics"}[1m])) * 100
+        unit: ops
+
+    business:
+
+
+relationship:
