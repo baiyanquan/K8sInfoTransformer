@@ -33,6 +33,8 @@ class K8sDataTransformer:
         for clean_resource_type in self.parse_template.keys():
             self.arg_dict[clean_resource_type] = self.parse_template[clean_resource_type]["arg"]
 
+        return json_result
+
     def load_parse_template(self):
         self.parse_template = ParseTemplateLoader.load_parse_template()
 
