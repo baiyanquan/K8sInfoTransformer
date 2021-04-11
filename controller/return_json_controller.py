@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route('/get_json', methods=['GET'])
 def get_tasks():
     time.time()
+    # 本地时间
     # simplified_time = time.strftime("%Y%m%d_%H%M%S")
     simplified_time = "20210314_111500"
     print(simplified_time)
