@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/get_json', methods=['GET'])
-def get_tasks():
+def get_json():
     time.time()
     # 本地时间
     # simplified_time = time.strftime("%Y%m%d_%H%M%S")
@@ -14,6 +14,11 @@ def get_tasks():
     print(simplified_time)
     k8s_data_transformer = K8sDataTransformer()
     return k8s_data_transformer.transform_k8s_data(simplified_time)
+
+
+@app.route('/hello', methods=['GET'])
+def hello():
+    return 'hello'
 
 
 if __name__ == '__main__':
