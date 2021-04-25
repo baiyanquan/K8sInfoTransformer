@@ -34,7 +34,7 @@ def get_json():
         if len(date_spl) == 1:  # 传入的是简化版时间
             param = time_str
         else:
-            clock_spl = time_spl[1].split("-")
+            clock_spl = time_spl[1].split(":")
             param = date_spl[0] + date_spl[1] + date_spl[2] + clock_spl[0] + clock_spl[1] + clock_spl[2]
     else:  # 无传入时间，获取本地时间
         time.time()
