@@ -1,0 +1,83 @@
+{
+  "id": "",
+  "name": "",
+  "label": "Component",
+  "stime": "",
+  "etime": "",
+  "property": {
+    "query": {
+      "business": {
+        "status": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        },
+        "statusCode": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        },
+        "errorCode": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        },
+        "message": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        },
+        "errorMessage": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        }
+      },
+      "traffic": {
+        "sendTrafficInfoRate(success)": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {},
+          "property-query-unit": ""
+        },
+        "sendTrafficInfoRate(failure)": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {},
+          "property-query-unit": ""
+        },
+        "receiveTrafficInfoRate(success)": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {},
+          "property-query-unit": ""
+        },
+        "receiveTrafficInfoRate(failure)": {
+          "property-type": "logging",
+          "property-query-address": "",
+          "property-query-type": "GET",
+          "property-query-params": {},
+          "property-query-unit": ""
+        }
+      },
+      "resource": {
+        "namespace": "",
+        "serviceName": "",
+        "podName": "",
+        "containerId": "",
+        "componentName": ""
+      }
+    },
+    "query_range": {
+
+    }
+  }
+}

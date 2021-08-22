@@ -1,52 +1,157 @@
-env:
-  id: ///metadata///uid
-  name: ///metadata///name
-  prefix: http://www.huawei.com/uvc/node/
-  query: http://10.60.38.174:31003/api/v1/query?query=
-  query_range: http://10.60.38.174:31003/api/v1/query_range?query=
+# 对于env/base/property中属性的property-type字段，优先解析env下面的全部属性，具体的解析方式如下:
+#   separator: 表明此属性作为其他子属性的存放空间（类似于文件夹），需要分析下面的属性才有意义。
+#   value: 表明此属性的属性值为定值，其对应的父属性还具有子属性（与property-type同级）：
+#     property-value: 属性值的定值。
+#   config: 表明此属性的属性值来自于k8s的json文件内，其对应的父属性还具有子属性列表property-find-str（与property-type同级，列表的目的是防止json中有些字段存在多种状态，可能存在也可能不存在，按列表顺序依次查询以避免异常）。
+#   logging: 属性值来自于logging信息，包含如下参数：
+#     property-query-address: logging信息的请求地址。
+#     property-query-type: logging信息的请求类型，如GET、POST等。
+#     property-query-params: logging信息的请求附带参数，内部为自定义的属性键值对，规则与一般property相同。
+#   tracing: 属性值来自于tracing信息，包含如下参数：
+#     property-query-address: tracing信息的请求地址。
+#     property-query-type: tracing信息的请求类型，如GET、POST等。
+#     property-query-params: tracing信息的请求附带参数，内部为自定义的属性键值对，规则与一般property相同。
+#   metrics: 属性值来自于metrics信息，包含如下参数：
+#     property-query-address: metrics信息的请求地址。
+#     property-query-type: metrics信息的请求类型，如GET、POST等。
+#     property-query-params: metrics信息的请求附带参数，内部为自定义的属性键值对，规则与一般property相同。
+#     property-unit：metrics信息的单位，""表示没有单位。
+#   aggregator: 属性值为聚合值，需根据多个角度的数据共同确定，包含如下参数：
+#     property-query-address: aggregator信息的请求地址。
+#     property-query-type: aggregator信息的请求类型，如GET、POST等。
+#     property-query-params: aggregator信息的请求附带参数，内部为自定义的属性键值对，规则与一般property相同。
+#   connector: 属性值来源于其他具有关系的实体，包含如下参数：
+#     entity-kind: 实体类别，如Service等；
+#     entity-property-find-str: 需要的属性值在其他相关实体中的位置，解析方式同property-find-str。
+# 此外，全部类型的属性都可能包括的共同属性有：
+#   property-visible: 若属性存在此属性且值为"hidden"，标识其所在的父属性在最终nodes中不保存，主要作用为构建关系过程中的关联字段。
+#
+# 对于relationship中的关系信息，最上层的key代表关系名称，每种关系具有如下属性字段：
+#   entity-kind: 实体类别，如Service等；
+#   filter: 筛选条件，目前包括如下几种：
+#     - config_value(find_str_a) <<<< config_value(find_str_b): 主要针对Kubernetes中的label选择机制，如一个实体的selector label在另一个里面都出现，表明存在关系。find_str与property-find-str的解析方式相同。当解析值为json时，左边的键值对全部包含在右边中符合条件；当解析值为字符串时，左边的字符串包含于右边中符合条件。
+#     - config_value(find_str_a) ==== config_value(find_str_b): 针对通过字段信息关联的实体，如Pod和Node，====表示两端对象的值完全相同。
+#     - config_value(find_str_a) >>>> config_value(find_str_b): 与<<<<的表达信息相反。
+#     注：find_str_a代表当前实体从k8s-config中解析的字符串，find_str_b代表检查是否存在关系的目标实体中解析的字符串（即，按///切分后，直接在实体信息而不是k8s-config中寻找目标字段值）
+#   direction: 决定关系的方向，reverse代表从目标实体指向当前实体，forward代表从当前实体指向目标实体
+#
+# 特殊情况：
+# 1. 不论在何处出现$$str$$这种格式，一律将其解析为环境变量中对应的值，不遵循上述规则；解析完成后，仍然存在两种情况：
+#    - 此属性仍需要解析（property-type非value），去掉$$str$$的余下部分根据解析规则，解析完成后，与环境变量的解析值按照对应位置进行字符串拼接；
+#    - 此属性不需要解析，直接做字符串拼接。
 
-arg:
-  - time
+info_position:
+  - items
+
+env:
+  id:
+    property-type: config
+    property-find-str:
+      - metadata///uid
+  name:
+    property-type: config
+    property-find-str:
+      - metadata///name
+  prefix:
+    property-type: value
+    property-value: http://www.huawei.com/uvc/node/
 
 base:
-  id: ///metadata///uid
-  name: $$prefix$$///metadata///name
-  stime: ///metadata///creationTimestamp
-  etime: 1645539492
-  label: ///kind
+  id:
+    property-type: value
+    property-value: $$id$$
+  name:
+    property-type: config
+    property-find-str:
+      - $$prefix$$metadata///name
+  stime:
+    property-type: config
+    property-find-str:
+      - metadata///creationTimestamp
+  etime:
+    property-type: value
+    property-value: ""
+  label:
+    property-type: config
+    property-find-str:
+      - kind
 
 property:
-  configuration:
-    addresses: ///status///addresses
-    nodeInfo: ///status///nodeInfo
-    hostIP: ///metadata///annotations///flannel.alpha.coreos.com/public-ip
   query:
-    resource:
-      cpu-utilization:
-        type: metrics
-        queryStatement: $$query$$max (sum by (cpu) (irate(node_cpu_seconds_total{cluster="", job="node-exporter", mode!="idle", instance="$$name$$:9100"}[2m])))*100
-        unit: percent
-      mem-usage:
-        type: metrics
-        queryStatement: $$query$$max(node_memory_MemTotal_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_MemFree_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Buffers_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Cached_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"})
-        unit: GiB
+    property-type: separator
     traffic:
-
-    business:
-
-  query_range:
+      property-type: separator
+      networkTransmitted:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      networkDropped:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
     resource:
-      cpu-utilization:
-        type: metrics
-        queryStatement: $$query_range$$max (sum by (cpu) (irate(node_cpu_seconds_total{cluster="", job="node-exporter", mode!="idle", instance="$$name$$:9100"}[2m])))*100
-        unit: percent
-      mem-usage:
-        type: metrics
-        queryStatement: $$query_range$$max(node_memory_MemTotal_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_MemFree_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Buffers_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"}  - node_memory_Cached_bytes{cluster="", job="node-exporter", instance="192.168.199.31:9100"})
-        unit: GiB
-    traffic:
-
-    business:
-
-
-relationship:
+      property-type: separator
+      CPUUtilization:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      CPUSaturation:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      memUtilization:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      memSaturation:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      diskUtilization:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      diskSaturation:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      nodeName:
+        property-type: config
+        property-find-str:
+          - metadata///name
+      nodeIP:
+        property-type: config
+        property-find-str:
+          - metadata///annotations///kubernetes.io/hostname
+      role:
+        property-type: config
+        property-find-str:
+          - metadata///annotations///kubernetes.io/role
+      capacity:
+        property-type: config
+        property-find-str:
+          - status///capacity
+      conditions:
+        property-type: config
+        property-find-str:
+          - status///conditions
+      operationSystem:
+        property-type: config
+        property-find-str:
+          - status///nodeInfo///osImage

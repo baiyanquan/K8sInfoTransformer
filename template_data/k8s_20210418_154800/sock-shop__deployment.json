@@ -1,0 +1,1637 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"carts\"},\"name\":\"carts\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"carts\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"zipkin.jaeger.svc.cluster.local\"},{\"name\":\"JAVA_OPTS\",\"value\":\"-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/carts:0.4.8\",\"name\":\"carts\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:15Z",
+                "generation": 1,
+                "labels": {
+                    "name": "carts"
+                },
+                "name": "carts",
+                "namespace": "sock-shop",
+                "resourceVersion": "2485",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/carts",
+                "uid": "d779fb00-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "carts"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "carts"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "zipkin.jaeger.svc.cluster.local"
+                                    },
+                                    {
+                                        "name": "JAVA_OPTS",
+                                        "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/carts:0.4.8",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "carts",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "lastUpdateTime": "2021-04-15T07:33:16Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"carts-db\"},\"name\":\"carts-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"carts-db\"}},\"spec\":{\"containers\":[{\"image\":\"192.168.199.2:5001/mongo\",\"name\":\"carts-db\",\"ports\":[{\"containerPort\":27017,\"name\":\"mongo\"}],\"securityContext\":{\"capabilities\":{\"add\":[\"CHOWN\",\"SETGID\",\"SETUID\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:15Z",
+                "generation": 1,
+                "labels": {
+                    "name": "carts-db"
+                },
+                "name": "carts-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "2339",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/carts-db",
+                "uid": "d737dac4-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "carts-db"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "carts-db"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "192.168.199.2:5001/mongo",
+                                "imagePullPolicy": "Always",
+                                "name": "carts-db",
+                                "ports": [
+                                    {
+                                        "containerPort": 27017,
+                                        "name": "mongo",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "CHOWN",
+                                            "SETGID",
+                                            "SETUID"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:15Z",
+                        "lastUpdateTime": "2021-04-15T07:33:15Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"catalogue\"},\"name\":\"catalogue\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"catalogue\"}},\"spec\":{\"containers\":[{\"args\":[\"-port=80\"],\"command\":[\"/app\"],\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/catalogue:0.3.5\",\"name\":\"catalogue\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:16Z",
+                "generation": 1,
+                "labels": {
+                    "name": "catalogue"
+                },
+                "name": "catalogue",
+                "namespace": "sock-shop",
+                "resourceVersion": "1955",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/catalogue",
+                "uid": "d7ea730e-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "catalogue"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "catalogue"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "args": [
+                                    "-port=80"
+                                ],
+                                "command": [
+                                    "/app"
+                                ],
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/catalogue:0.3.5",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "catalogue",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "lastUpdateTime": "2021-04-15T07:33:16Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"catalogue-db\"},\"name\":\"catalogue-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"catalogue-db\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"MYSQL_ROOT_PASSWORD\",\"value\":\"fake_password\"},{\"name\":\"MYSQL_DATABASE\",\"value\":\"socksdb\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/catalogue-db:0.3.0\",\"name\":\"catalogue-db\",\"ports\":[{\"containerPort\":3306,\"name\":\"mysql\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:16Z",
+                "generation": 1,
+                "labels": {
+                    "name": "catalogue-db"
+                },
+                "name": "catalogue-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "2773",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/catalogue-db",
+                "uid": "d7b55b27-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "catalogue-db"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "catalogue-db"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "MYSQL_ROOT_PASSWORD",
+                                        "value": "fake_password"
+                                    },
+                                    {
+                                        "name": "MYSQL_DATABASE",
+                                        "value": "socksdb"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/catalogue-db:0.3.0",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "catalogue-db",
+                                "ports": [
+                                    {
+                                        "containerPort": 3306,
+                                        "name": "mysql",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "lastUpdateTime": "2021-04-15T07:33:16Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"name\":\"front-end\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":5,\"template\":{\"metadata\":{\"labels\":{\"name\":\"front-end\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"SESSION_REDIS\",\"value\":\"true\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/front-end:0.3.12\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/\",\"port\":8079},\"initialDelaySeconds\":300,\"periodSeconds\":3},\"name\":\"front-end\",\"ports\":[{\"containerPort\":8079}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/\",\"port\":8079},\"initialDelaySeconds\":30,\"periodSeconds\":3},\"securityContext\":{\"capabilities\":{\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generation": 1,
+                "labels": {
+                    "name": "front-end"
+                },
+                "name": "front-end",
+                "namespace": "sock-shop",
+                "resourceVersion": "361778",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/front-end",
+                "uid": "d8345203-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 5,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "front-end"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "front-end"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "SESSION_REDIS",
+                                        "value": "true"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/",
+                                        "port": 8079,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 300,
+                                    "periodSeconds": 3,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "front-end",
+                                "ports": [
+                                    {
+                                        "containerPort": 8079,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/",
+                                        "port": 8079,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 30,
+                                    "periodSeconds": 3,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 5,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-18T01:56:57Z",
+                        "lastUpdateTime": "2021-04-18T01:56:57Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 5,
+                "replicas": 5,
+                "updatedReplicas": 5
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"orders\"},\"name\":\"orders\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":5,\"template\":{\"metadata\":{\"labels\":{\"name\":\"orders\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"zipkin.jaeger.svc.cluster.local\"},{\"name\":\"JAVA_OPTS\",\"value\":\"-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/orders:0.4.7\",\"name\":\"orders\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generation": 1,
+                "labels": {
+                    "name": "orders"
+                },
+                "name": "orders",
+                "namespace": "sock-shop",
+                "resourceVersion": "2954",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/orders",
+                "uid": "d910c214-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 5,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "orders"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "orders"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "zipkin.jaeger.svc.cluster.local"
+                                    },
+                                    {
+                                        "name": "JAVA_OPTS",
+                                        "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "orders",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 5,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:35:39Z",
+                        "lastUpdateTime": "2021-04-15T07:35:39Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 5,
+                "replicas": 5,
+                "updatedReplicas": 5
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"orders-db\"},\"name\":\"orders-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"orders-db\"}},\"spec\":{\"containers\":[{\"image\":\"192.168.199.2:5001/mongo\",\"name\":\"orders-db\",\"ports\":[{\"containerPort\":27017,\"name\":\"mongo\"}],\"securityContext\":{\"capabilities\":{\"add\":[\"CHOWN\",\"SETGID\",\"SETUID\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generation": 1,
+                "labels": {
+                    "name": "orders-db"
+                },
+                "name": "orders-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "2809",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/orders-db",
+                "uid": "d8c5816d-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "orders-db"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "orders-db"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "192.168.199.2:5001/mongo",
+                                "imagePullPolicy": "Always",
+                                "name": "orders-db",
+                                "ports": [
+                                    {
+                                        "containerPort": 27017,
+                                        "name": "mongo",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "CHOWN",
+                                            "SETGID",
+                                            "SETUID"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "lastUpdateTime": "2021-04-15T07:33:18Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"payment\"},\"name\":\"payment\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"payment\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/payment:0.4.3\",\"name\":\"payment\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:19Z",
+                "generation": 1,
+                "labels": {
+                    "name": "payment"
+                },
+                "name": "payment",
+                "namespace": "sock-shop",
+                "resourceVersion": "2645",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/payment",
+                "uid": "d9700aa3-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "payment"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "payment"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/payment:0.4.3",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "payment",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:19Z",
+                        "lastUpdateTime": "2021-04-15T07:33:19Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"queue-master\"},\"name\":\"queue-master\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"queue-master\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"zipkin.jaeger.svc.cluster.local\"},{\"name\":\"JAVA_OPTS\",\"value\":\"-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/queue-master:0.3.1\",\"livenessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":80},\"initialDelaySeconds\":300,\"periodSeconds\":3},\"name\":\"queue-master\",\"ports\":[{\"containerPort\":80}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/health\",\"port\":80},\"initialDelaySeconds\":180,\"periodSeconds\":3}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:20Z",
+                "generation": 1,
+                "labels": {
+                    "name": "queue-master"
+                },
+                "name": "queue-master",
+                "namespace": "sock-shop",
+                "resourceVersion": "3555",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/queue-master",
+                "uid": "d9ec0af4-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "queue-master"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "queue-master"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "zipkin.jaeger.svc.cluster.local"
+                                    },
+                                    {
+                                        "name": "JAVA_OPTS",
+                                        "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/queue-master:0.3.1",
+                                "imagePullPolicy": "IfNotPresent",
+                                "livenessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/health",
+                                        "port": 80,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 300,
+                                    "periodSeconds": 3,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "name": "queue-master",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "readinessProbe": {
+                                    "failureThreshold": 3,
+                                    "httpGet": {
+                                        "path": "/health",
+                                        "port": 80,
+                                        "scheme": "HTTP"
+                                    },
+                                    "initialDelaySeconds": 180,
+                                    "periodSeconds": 3,
+                                    "successThreshold": 1,
+                                    "timeoutSeconds": 1
+                                },
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:20Z",
+                        "lastUpdateTime": "2021-04-15T07:33:20Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"rabbitmq\"},\"name\":\"rabbitmq\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"annotations\":{\"prometheus.io/scrape\":\"false\"},\"labels\":{\"name\":\"rabbitmq\"}},\"spec\":{\"containers\":[{\"image\":\"192.168.199.2:5001/rabbitmq:3.6.8-management\",\"name\":\"rabbitmq\",\"ports\":[{\"containerPort\":15672,\"name\":\"management\"},{\"containerPort\":5672,\"name\":\"rabbitmq\"}],\"securityContext\":{\"capabilities\":{\"add\":[\"CHOWN\",\"SETGID\",\"SETUID\",\"DAC_OVERRIDE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:20Z",
+                "generation": 1,
+                "labels": {
+                    "name": "rabbitmq"
+                },
+                "name": "rabbitmq",
+                "namespace": "sock-shop",
+                "resourceVersion": "3001",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/rabbitmq",
+                "uid": "da425c05-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "rabbitmq"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "prometheus.io/scrape": "false"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "rabbitmq"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "192.168.199.2:5001/rabbitmq:3.6.8-management",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "rabbitmq",
+                                "ports": [
+                                    {
+                                        "containerPort": 15672,
+                                        "name": "management",
+                                        "protocol": "TCP"
+                                    },
+                                    {
+                                        "containerPort": 5672,
+                                        "name": "rabbitmq",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "CHOWN",
+                                            "SETGID",
+                                            "SETUID",
+                                            "DAC_OVERRIDE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:20Z",
+                        "lastUpdateTime": "2021-04-15T07:33:20Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"session-db\"},\"name\":\"session-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"annotations\":{\"prometheus.io.scrape\":\"false\"},\"labels\":{\"name\":\"session-db\"}},\"spec\":{\"containers\":[{\"image\":\"192.168.199.2:5001/redis:alpine\",\"name\":\"session-db\",\"ports\":[{\"containerPort\":6379,\"name\":\"redis\"}],\"securityContext\":{\"capabilities\":{\"add\":[\"CHOWN\",\"SETGID\",\"SETUID\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:21Z",
+                "generation": 1,
+                "labels": {
+                    "name": "session-db"
+                },
+                "name": "session-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "361526",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/session-db",
+                "uid": "da8733df-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "session-db"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "annotations": {
+                            "prometheus.io.scrape": "false"
+                        },
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "session-db"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "192.168.199.2:5001/redis:alpine",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "session-db",
+                                "ports": [
+                                    {
+                                        "containerPort": 6379,
+                                        "name": "redis",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "CHOWN",
+                                            "SETGID",
+                                            "SETUID"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:21Z",
+                        "lastUpdateTime": "2021-04-15T07:33:21Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"shipping\"},\"name\":\"shipping\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"shipping\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"ZIPKIN\",\"value\":\"zipkin.jaeger.svc.cluster.local\"},{\"name\":\"JAVA_OPTS\",\"value\":\"-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/shipping:0.4.8\",\"name\":\"shipping\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:21Z",
+                "generation": 1,
+                "labels": {
+                    "name": "shipping"
+                },
+                "name": "shipping",
+                "namespace": "sock-shop",
+                "resourceVersion": "369699",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/shipping",
+                "uid": "dabf5d48-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "shipping"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "shipping"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "ZIPKIN",
+                                        "value": "zipkin.jaeger.svc.cluster.local"
+                                    },
+                                    {
+                                        "name": "JAVA_OPTS",
+                                        "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/shipping:0.4.8",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "shipping",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:21Z",
+                        "lastUpdateTime": "2021-04-15T07:33:21Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"user\"},\"name\":\"user\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"user\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"mongo\",\"value\":\"user-db:27017\"}],\"image\":\"192.168.199.2:5001/weaveworksdemos/user:0.4.7\",\"name\":\"user\",\"ports\":[{\"containerPort\":80}],\"securityContext\":{\"capabilities\":{\"add\":[\"NET_BIND_SERVICE\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001}}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"}}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:22Z",
+                "generation": 1,
+                "labels": {
+                    "name": "user"
+                },
+                "name": "user",
+                "namespace": "sock-shop",
+                "resourceVersion": "3053",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/user",
+                "uid": "db62c592-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "user"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "user"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "env": [
+                                    {
+                                        "name": "mongo",
+                                        "value": "user-db:27017"
+                                    }
+                                ],
+                                "image": "192.168.199.2:5001/weaveworksdemos/user:0.4.7",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "user",
+                                "ports": [
+                                    {
+                                        "containerPort": 80,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "NET_BIND_SERVICE"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true,
+                                    "runAsNonRoot": true,
+                                    "runAsUser": 10001
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File"
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "lastUpdateTime": "2021-04-15T07:33:22Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        },
+        {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "Deployment",
+            "metadata": {
+                "annotations": {
+                    "deployment.kubernetes.io/revision": "1",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"extensions/v1beta1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{},\"labels\":{\"name\":\"user-db\"},\"name\":\"user-db\",\"namespace\":\"sock-shop\"},\"spec\":{\"replicas\":1,\"template\":{\"metadata\":{\"labels\":{\"name\":\"user-db\"}},\"spec\":{\"containers\":[{\"image\":\"192.168.199.2:5001/weaveworksdemos/user-db:0.3.0\",\"name\":\"user-db\",\"ports\":[{\"containerPort\":27017,\"name\":\"mongo\"}],\"securityContext\":{\"capabilities\":{\"add\":[\"CHOWN\",\"SETGID\",\"SETUID\"],\"drop\":[\"all\"]},\"readOnlyRootFilesystem\":true},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"tmp-volume\"}]}],\"nodeSelector\":{\"beta.kubernetes.io/os\":\"linux\"},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"tmp-volume\"}]}}}}\n"
+                },
+                "creationTimestamp": "2021-04-15T07:33:21Z",
+                "generation": 1,
+                "labels": {
+                    "name": "user-db"
+                },
+                "name": "user-db",
+                "namespace": "sock-shop",
+                "resourceVersion": "2860",
+                "selfLink": "/apis/extensions/v1beta1/namespaces/sock-shop/deployments/user-db",
+                "uid": "db11e264-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "progressDeadlineSeconds": 2147483647,
+                "replicas": 1,
+                "revisionHistoryLimit": 2147483647,
+                "selector": {
+                    "matchLabels": {
+                        "name": "user-db"
+                    }
+                },
+                "strategy": {
+                    "rollingUpdate": {
+                        "maxSurge": 1,
+                        "maxUnavailable": 1
+                    },
+                    "type": "RollingUpdate"
+                },
+                "template": {
+                    "metadata": {
+                        "creationTimestamp": null,
+                        "labels": {
+                            "name": "user-db"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "image": "192.168.199.2:5001/weaveworksdemos/user-db:0.3.0",
+                                "imagePullPolicy": "IfNotPresent",
+                                "name": "user-db",
+                                "ports": [
+                                    {
+                                        "containerPort": 27017,
+                                        "name": "mongo",
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "securityContext": {
+                                    "capabilities": {
+                                        "add": [
+                                            "CHOWN",
+                                            "SETGID",
+                                            "SETUID"
+                                        ],
+                                        "drop": [
+                                            "all"
+                                        ]
+                                    },
+                                    "procMount": "Default",
+                                    "readOnlyRootFilesystem": true
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "terminationMessagePolicy": "File",
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/tmp",
+                                        "name": "tmp-volume"
+                                    }
+                                ]
+                            }
+                        ],
+                        "dnsPolicy": "ClusterFirst",
+                        "nodeSelector": {
+                            "beta.kubernetes.io/os": "linux"
+                        },
+                        "restartPolicy": "Always",
+                        "schedulerName": "default-scheduler",
+                        "securityContext": {},
+                        "terminationGracePeriodSeconds": 30,
+                        "volumes": [
+                            {
+                                "emptyDir": {
+                                    "medium": "Memory"
+                                },
+                                "name": "tmp-volume"
+                            }
+                        ]
+                    }
+                }
+            },
+            "status": {
+                "availableReplicas": 1,
+                "conditions": [
+                    {
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "lastUpdateTime": "2021-04-15T07:33:22Z",
+                        "message": "Deployment has minimum availability.",
+                        "reason": "MinimumReplicasAvailable",
+                        "status": "True",
+                        "type": "Available"
+                    }
+                ],
+                "observedGeneration": 1,
+                "readyReplicas": 1,
+                "replicas": 1,
+                "updatedReplicas": 1
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

@@ -39,6 +39,8 @@
 # 1. 不论在何处出现$$str$$这种格式，一律将其解析为环境变量中对应的值，不遵循上述规则；解析完成后，仍然存在两种情况：
 #    - 此属性仍需要解析（property-type非value），去掉$$str$$的余下部分根据解析规则，解析完成后，与环境变量的解析值按照对应位置进行字符串拼接；
 #    - 此属性不需要解析，直接做字符串拼接。
+# 2. property-type为config的属性中，property-value包含///***///，***表示中间为任意字符（不建议使用）
+# 3. property-type为config的属性中，property-value包含...///，...表示退回info_position的上一级查找属性
 
 info_position:
   - items
@@ -47,14 +49,14 @@ env:
   id:
     property-type: config
     property-find-str:
-      - metadata///uid
+      - componentID
   name:
     property-type: config
     property-find-str:
-      - metadata///name
+      - name
   prefix:
     property-type: value
-    property-value: http://www.huawei.com/uvc/service/
+    property-value: http://www.huawei.com/uvc/component/
 
 base:
   id:
@@ -63,150 +65,93 @@ base:
   name:
     property-type: config
     property-find-str:
-      - $$prefix$$metadata///name
+      - $$prefix$$name
   stime:
-    property-type: config
+    property-type: connector
     property-find-str:
-      - metadata///creationTimestamp
+      - stime
   etime:
-    property-type: value
-    property-value: ""
+    property-type: connector
+    property-find-str:
+      - etime
   label:
-    property-type: config
-    property-find-str:
-      - kind
-  selector:
-    property-type: config
-    property-find-str:
-      - metadata///labels
-    property-visible: hidden
+    property-type: value
+    property-value:
+      - Component
 
 property:
   query:
     property-type: separator
     business:
       property-type: separator
-      averageWaitTime:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      successRate:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      latency:
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: s
-      deadLivePoint:
-        property-type: aggregator
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      message:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      errorMessage:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      statusCode:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-      errorCode:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-
-    traffic:
-      property-type: separator
-      TPS(2xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      TPS(4xx/5xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      QPS(2xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      QPS(4xx/5xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-
-    resource:
-      property-type: separator
-      namespace:
-        property-type: config
-        property-find-str:
-          - metadata///namespace
-      serviceName:
-        property-type: config
-        property-find-str:
-          - metadata///name
-
-  query_range:
-    property-type: separator
-    business:
-      property-type: separator
-      tracingList:
-        property-type: tracing
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-
-    traffic:
-      property-type: separator
-      TPS(2xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      TPS(4xx/5xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      QPS(2xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-      QPS(4xx/5xx):
-        property-type: metrics
-        property-query-address: ""
-        property-query-type: GET
-        property-query-params: ""
-        property-unit: ops
-
-    resource:
-      property-type: separator
-      loggingList:
+      status:
         property-type: logging
         property-query-address: ""
         property-query-type: GET
         property-query-params: ""
+      statusCode:
+        property-type: logging
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+      errorCode:
+        property-type: logging
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+      message:
+        property-type: logging
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+      errorMessage:
+        property-type: logging
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+    traffic:
+      property-type: separator
+      sendTrafficInfoRate:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      receiveTrafficInfoRate:
+        property-type: metrics
+        property-query-address: ""
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+    resource:
+      property-type: separator
+      namespace:
+        property-type: connector
+        relation-kind: is_composed_of
+        entity-property-find-str: property///query///resource///namespace
+      serviceName:
+        property-type: connector
+        relation-kind: is_composed_of
+        entity-property-find-str: property///query///resource///serviceName
+      podName:
+        property-type: connector
+        relation-kind: is_composed_of
+        entity-property-find-str: property///query///resource///podName
+      containerId:
+        property-type: connector
+        relation-kind: is_composed_of
+        entity-property-find-str: property///query///resource///containerId
+      componentName:
+        property-type: config
+        property-find-str:
+          - name
+      priority:
+        property-type: config
+        property-find-str:
+          - priority
+
+relationship:
+  is_composed_of:
+    entity_type: Container
+    filter: ...///metadata///uid ==== id
+    direction: reverse

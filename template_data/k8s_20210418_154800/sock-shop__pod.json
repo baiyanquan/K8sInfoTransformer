@@ -1,0 +1,3405 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:15Z",
+                "generateName": "carts-74778887d9-",
+                "labels": {
+                    "name": "carts",
+                    "pod-template-hash": "74778887d9"
+                },
+                "name": "carts-74778887d9-gvvn5",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "carts-74778887d9",
+                        "uid": "d77a7e27-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2482",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/carts-74778887d9-gvvn5",
+                "uid": "d77f4ea0-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/carts:0.4.8",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "carts",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:03Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:03Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://896ae4a33469fa3f0e07db34bd283c42d5f38399511661993691c1128b0819d2",
+                        "image": "192.168.199.2:5001/weaveworksdemos/carts:0.4.8",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/carts@sha256:a71752df3f4f71b6fbac87558e909480610906456092b5666ae8045ad1c8b1a1",
+                        "lastState": {},
+                        "name": "carts",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:03Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.4",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:17Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:15Z",
+                "generateName": "carts-db-64664d58b4-",
+                "labels": {
+                    "name": "carts-db",
+                    "pod-template-hash": "64664d58b4"
+                },
+                "name": "carts-db-64664d58b4-m2fnn",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "carts-db-64664d58b4",
+                        "uid": "d73e4205-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2333",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/carts-db-64664d58b4-m2fnn",
+                "uid": "d7497406-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "192.168.199.2:5001/mongo",
+                        "imagePullPolicy": "Always",
+                        "name": "carts-db",
+                        "ports": [
+                            {
+                                "containerPort": 27017,
+                                "name": "mongo",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "CHOWN",
+                                    "SETGID",
+                                    "SETUID"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:55Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:55Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:15Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://77e3582a1f881f65984419984b5abf9dc228f8d231b32c826f5f7259c94f0026",
+                        "image": "192.168.199.2:5001/mongo:latest",
+                        "imageID": "docker-pullable://192.168.199.2:5001/mongo@sha256:31f6433f7cfcd2180483e40728cbf97142df1e85de36d80d75c93e5e7fe10405",
+                        "lastState": {},
+                        "name": "carts-db",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:33:55Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.3",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:16Z",
+                "generateName": "catalogue-db-68d96b947f-",
+                "labels": {
+                    "name": "catalogue-db",
+                    "pod-template-hash": "68d96b947f"
+                },
+                "name": "catalogue-db-68d96b947f-k6t74",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "catalogue-db-68d96b947f",
+                        "uid": "d7b5fdf7-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2770",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/catalogue-db-68d96b947f-k6t74",
+                "uid": "d7b98e60-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "MYSQL_ROOT_PASSWORD",
+                                "value": "fake_password"
+                            },
+                            {
+                                "name": "MYSQL_DATABASE",
+                                "value": "socksdb"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/catalogue-db:0.3.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "catalogue-db",
+                        "ports": [
+                            {
+                                "containerPort": 3306,
+                                "name": "mysql",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:37Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:37Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://07b3fbcd136bcf2dfbd019b08aec6300c970cce86b13956fcc00e6cda42555ed",
+                        "image": "192.168.199.2:5001/weaveworksdemos/catalogue-db:0.3.0",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/catalogue-db@sha256:33d41c85bef8686a2985bbbf80c497690a14d3918bf9f75f5aac5e11a9000ef1",
+                        "lastState": {},
+                        "name": "catalogue-db",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:35Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.4",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:16Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:16Z",
+                "generateName": "catalogue-f4449f87b-",
+                "labels": {
+                    "name": "catalogue",
+                    "pod-template-hash": "f4449f87b"
+                },
+                "name": "catalogue-f4449f87b-rbl7d",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "catalogue-f4449f87b",
+                        "uid": "d7eb0d49-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "1951",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/catalogue-f4449f87b-rbl7d",
+                "uid": "d7f357d9-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "args": [
+                            "-port=80"
+                        ],
+                        "command": [
+                            "/app"
+                        ],
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/catalogue:0.3.5",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "catalogue",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:27Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:27Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://a7d2a10b16442a6f03a9aa55f5cb5fc324285b65998298fb4db0f1943306001b",
+                        "image": "192.168.199.2:5001/weaveworksdemos/catalogue:0.3.5",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/catalogue@sha256:bc0ffb3a9d70699ff7486fcbbba4cff836655287afaeb22bf76085d0b2c2acca",
+                        "lastState": {},
+                        "name": "catalogue",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:33:26Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.4",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:16Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generateName": "front-end-8996498c8-",
+                "labels": {
+                    "name": "front-end",
+                    "pod-template-hash": "8996498c8"
+                },
+                "name": "front-end-8996498c8-97wbb",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "front-end-8996498c8",
+                        "uid": "d834c985-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361752",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/front-end-8996498c8-97wbb",
+                "uid": "d84378ce-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "SESSION_REDIS",
+                                "value": "true"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "front-end",
+                        "ports": [
+                            {
+                                "containerPort": 8079,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:55Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:55Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://c3a1d08618cc6dfd2ab3915d97b9105da5cc5d278f1e970bf19922f1d4fc61f8",
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/front-end@sha256:3db5e23f05ade35929a4414ebcdd02857f6bb1e16bf3a16914df036e3965edfd",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://9ff516ed4f0b751df058796080426b9c0258b9acbb0479275bd5f3f064125fa6",
+                                "exitCode": 1,
+                                "finishedAt": "2021-04-18T01:56:23Z",
+                                "reason": "Error",
+                                "startedAt": "2021-04-15T07:33:48Z"
+                            }
+                        },
+                        "name": "front-end",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:56:24Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.6",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:17Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generateName": "front-end-8996498c8-",
+                "labels": {
+                    "name": "front-end",
+                    "pod-template-hash": "8996498c8"
+                },
+                "name": "front-end-8996498c8-mlshs",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "front-end-8996498c8",
+                        "uid": "d834c985-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361757",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/front-end-8996498c8-mlshs",
+                "uid": "d83a040a-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "SESSION_REDIS",
+                                "value": "true"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "front-end",
+                        "ports": [
+                            {
+                                "containerPort": 8079,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:56Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:56Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://50ab5b7262d4d51142dd0dfdc256cce9c34f6c767d68c2437f772f76574dfc48",
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/front-end@sha256:3db5e23f05ade35929a4414ebcdd02857f6bb1e16bf3a16914df036e3965edfd",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://73efce3be6364d52ee4c7baa0642cfeac7c5e8c7bd82d2911fd4b6b012fcf2a3",
+                                "exitCode": 1,
+                                "finishedAt": "2021-04-18T01:56:23Z",
+                                "reason": "Error",
+                                "startedAt": "2021-04-15T07:33:47Z"
+                            }
+                        },
+                        "name": "front-end",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:56:25Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.5",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:17Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generateName": "front-end-8996498c8-",
+                "labels": {
+                    "name": "front-end",
+                    "pod-template-hash": "8996498c8"
+                },
+                "name": "front-end-8996498c8-nj6dd",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "front-end-8996498c8",
+                        "uid": "d834c985-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361762",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/front-end-8996498c8-nj6dd",
+                "uid": "d837823e-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "SESSION_REDIS",
+                                "value": "true"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "front-end",
+                        "ports": [
+                            {
+                                "containerPort": 8079,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:56Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:56Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://9c0ea9cedd36980dabb592cb96249589f727c527a6f06678073792f3a38bc709",
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/front-end@sha256:3db5e23f05ade35929a4414ebcdd02857f6bb1e16bf3a16914df036e3965edfd",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://51de374ffa30b9119aecade1cd745cc2731db532e23135638acb3b3a6bb30855",
+                                "exitCode": 1,
+                                "finishedAt": "2021-04-18T01:56:23Z",
+                                "reason": "Error",
+                                "startedAt": "2021-04-15T07:35:17Z"
+                            }
+                        },
+                        "name": "front-end",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:56:26Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.6",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:18Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generateName": "front-end-8996498c8-",
+                "labels": {
+                    "name": "front-end",
+                    "pod-template-hash": "8996498c8"
+                },
+                "name": "front-end-8996498c8-t5fc5",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "front-end-8996498c8",
+                        "uid": "d834c985-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361769",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/front-end-8996498c8-t5fc5",
+                "uid": "d843600c-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "SESSION_REDIS",
+                                "value": "true"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "front-end",
+                        "ports": [
+                            {
+                                "containerPort": 8079,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:57Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:57Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://8c66a6277fdad8628a352351b50904fa6ab4c2971344f9fc741c2955d3846fc1",
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/front-end@sha256:3db5e23f05ade35929a4414ebcdd02857f6bb1e16bf3a16914df036e3965edfd",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://bdcfd452da43b1672a17464cf569bac0f1a636abe0cb5f31aae8d991b6702bdb",
+                                "exitCode": 1,
+                                "finishedAt": "2021-04-18T01:56:23Z",
+                                "reason": "Error",
+                                "startedAt": "2021-04-15T07:35:17Z"
+                            }
+                        },
+                        "name": "front-end",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:56:26Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.5",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:22Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:17Z",
+                "generateName": "front-end-8996498c8-",
+                "labels": {
+                    "name": "front-end",
+                    "pod-template-hash": "8996498c8"
+                },
+                "name": "front-end-8996498c8-whhpc",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "front-end-8996498c8",
+                        "uid": "d834c985-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361774",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/front-end-8996498c8-whhpc",
+                "uid": "d83a13d1-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "SESSION_REDIS",
+                                "value": "true"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "front-end",
+                        "ports": [
+                            {
+                                "containerPort": 8079,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/",
+                                "port": 8079,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 30,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:58Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:56:58Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:17Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://a8450be4d30bed9b18e303229feb9dd0a222382b0a47680d978f69e8dde7a864",
+                        "image": "192.168.199.2:5001/weaveworksdemos/front-end:0.3.12",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/front-end@sha256:3db5e23f05ade35929a4414ebcdd02857f6bb1e16bf3a16914df036e3965edfd",
+                        "lastState": {
+                            "terminated": {
+                                "containerID": "docker://1d211a7e37549da47a9eb083162d72099e255ab68270e0670a14941c8c4de249",
+                                "exitCode": 1,
+                                "finishedAt": "2021-04-18T01:56:24Z",
+                                "reason": "Error",
+                                "startedAt": "2021-04-15T07:34:53Z"
+                            }
+                        },
+                        "name": "front-end",
+                        "ready": true,
+                        "restartCount": 1,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:56:27Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.5",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:17Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-87dc8fd66-",
+                "labels": {
+                    "name": "orders",
+                    "pod-template-hash": "87dc8fd66"
+                },
+                "name": "orders-87dc8fd66-55dll",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-87dc8fd66",
+                        "uid": "d9149f6e-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2513",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-87dc8fd66-55dll",
+                "uid": "d9354d60-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "orders",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:09Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:09Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://0530e7e764089e84974e6880b29c3b70a2ab38932041dd8ae9c57cd69b5dfc13",
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/orders@sha256:fb133836aec144ce366cd288739f35339fa78fae5a116f0a456c979d44fd912b",
+                        "lastState": {},
+                        "name": "orders",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:09Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.8",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:18Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-87dc8fd66-",
+                "labels": {
+                    "name": "orders",
+                    "pod-template-hash": "87dc8fd66"
+                },
+                "name": "orders-87dc8fd66-5dqnj",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-87dc8fd66",
+                        "uid": "d9149f6e-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2947",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-87dc8fd66-5dqnj",
+                "uid": "d934fa29-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "orders",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:24Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:39Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:39Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://5e387fa6b2d5a3bbe1d0957125843204d429d96f64a610a33bb0c6b74c872df0",
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/orders@sha256:fb133836aec144ce366cd288739f35339fa78fae5a116f0a456c979d44fd912b",
+                        "lastState": {},
+                        "name": "orders",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:38Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.9",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:24Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-87dc8fd66-",
+                "labels": {
+                    "name": "orders",
+                    "pod-template-hash": "87dc8fd66"
+                },
+                "name": "orders-87dc8fd66-b6gnb",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-87dc8fd66",
+                        "uid": "d9149f6e-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2951",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-87dc8fd66-b6gnb",
+                "uid": "d91f3bc6-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "orders",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:23Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:39Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:39Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://6d9e9aeea0a73d4a6275c598c43f59cc375ec263238daf01d366097eb5b41972",
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/orders@sha256:fb133836aec144ce366cd288739f35339fa78fae5a116f0a456c979d44fd912b",
+                        "lastState": {},
+                        "name": "orders",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:37Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.8",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:23Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-87dc8fd66-",
+                "labels": {
+                    "name": "orders",
+                    "pod-template-hash": "87dc8fd66"
+                },
+                "name": "orders-87dc8fd66-fvl8h",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-87dc8fd66",
+                        "uid": "d9149f6e-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2506",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-87dc8fd66-fvl8h",
+                "uid": "d918c073-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "orders",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:08Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:08Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://13922837508fb39dd4f0142e0ab14222c2cfb9a76c8c60f8458075f41359cf69",
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/orders@sha256:fb133836aec144ce366cd288739f35339fa78fae5a116f0a456c979d44fd912b",
+                        "lastState": {},
+                        "name": "orders",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:08Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.7",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:18Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-87dc8fd66-",
+                "labels": {
+                    "name": "orders",
+                    "pod-template-hash": "87dc8fd66"
+                },
+                "name": "orders-87dc8fd66-l82wc",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-87dc8fd66",
+                        "uid": "d9149f6e-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2874",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-87dc8fd66-l82wc",
+                "uid": "d91f1ffb-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "orders",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:17Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:17Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://7005b2bc6da7f7aa869309e40637a8700527ff40edb2861408da38a5bbe0c808",
+                        "image": "192.168.199.2:5001/weaveworksdemos/orders:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/orders@sha256:fb133836aec144ce366cd288739f35339fa78fae5a116f0a456c979d44fd912b",
+                        "lastState": {},
+                        "name": "orders",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:16Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.7",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:18Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:18Z",
+                "generateName": "orders-db-65d66754d8-",
+                "labels": {
+                    "name": "orders-db",
+                    "pod-template-hash": "65d66754d8"
+                },
+                "name": "orders-db-65d66754d8-q2n8t",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "orders-db-65d66754d8",
+                        "uid": "d8c60f77-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2806",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/orders-db-65d66754d8-q2n8t",
+                "uid": "d8c75a51-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "192.168.199.2:5001/mongo",
+                        "imagePullPolicy": "Always",
+                        "name": "orders-db",
+                        "ports": [
+                            {
+                                "containerPort": 27017,
+                                "name": "mongo",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "CHOWN",
+                                    "SETGID",
+                                    "SETUID"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:54Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:54Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:18Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://5fc036bbb33749cb9069ce599ef06f0b33dd2b24bfde96c934197c89476d3745",
+                        "image": "192.168.199.2:5001/mongo:latest",
+                        "imageID": "docker-pullable://192.168.199.2:5001/mongo@sha256:31f6433f7cfcd2180483e40728cbf97142df1e85de36d80d75c93e5e7fe10405",
+                        "lastState": {},
+                        "name": "orders-db",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:53Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.6",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:18Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:19Z",
+                "generateName": "payment-5f7f45778c-",
+                "labels": {
+                    "name": "payment",
+                    "pod-template-hash": "5f7f45778c"
+                },
+                "name": "payment-5f7f45778c-bpb7k",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "payment-5f7f45778c",
+                        "uid": "d97089aa-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2642",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/payment-5f7f45778c-bpb7k",
+                "uid": "d98c5721-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "http://zipkin.jaeger.svc.cluster.local:9411/api/v1/spans"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/payment:0.4.3",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "payment",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:19Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:22Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:34:22Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:19Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://38e4484399c25f519aae495ec924e712fa41c567655d717d7e41dc4cf7e65b1f",
+                        "image": "192.168.199.2:5001/weaveworksdemos/payment:0.4.3",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/payment@sha256:9ec3b800e564cb9856edea61a5a4f4536d20d7a9b4224db5a6960832ebbe7237",
+                        "lastState": {},
+                        "name": "payment",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:34:21Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.9",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:19Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:20Z",
+                "generateName": "queue-master-59476f74b4-",
+                "labels": {
+                    "name": "queue-master",
+                    "pod-template-hash": "59476f74b4"
+                },
+                "name": "queue-master-59476f74b4-ts9f7",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "queue-master-59476f74b4",
+                        "uid": "d9ec8bd3-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "3552",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/queue-master-59476f74b4-ts9f7",
+                "uid": "d9f63b19-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/queue-master:0.3.1",
+                        "imagePullPolicy": "IfNotPresent",
+                        "livenessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/health",
+                                "port": 80,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 300,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "name": "queue-master",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "readinessProbe": {
+                            "failureThreshold": 3,
+                            "httpGet": {
+                                "path": "/health",
+                                "port": 80,
+                                "scheme": "HTTP"
+                            },
+                            "initialDelaySeconds": 180,
+                            "periodSeconds": 3,
+                            "successThreshold": 1,
+                            "timeoutSeconds": 1
+                        },
+                        "resources": {},
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.32",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:24Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:38:29Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:38:29Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:20Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://2cec90df6d3bb5bf78e8e825fba4b2356089f6124b50e7c47d4f680a9cd79427",
+                        "image": "192.168.199.2:5001/weaveworksdemos/queue-master:0.3.1",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/queue-master@sha256:1e5d959ba20ec17fc4e9da1bd89b01a2217ffee4f3e8945ca7a5e10f73409bee",
+                        "lastState": {},
+                        "name": "queue-master",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:27Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.32",
+                "phase": "Running",
+                "podIP": "172.20.1.7",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:24Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "prometheus.io/scrape": "false"
+                },
+                "creationTimestamp": "2021-04-15T07:33:20Z",
+                "generateName": "rabbitmq-6969b46cd9-",
+                "labels": {
+                    "name": "rabbitmq",
+                    "pod-template-hash": "6969b46cd9"
+                },
+                "name": "rabbitmq-6969b46cd9-52hn5",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "rabbitmq-6969b46cd9",
+                        "uid": "da42faa5-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2998",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/rabbitmq-6969b46cd9-52hn5",
+                "uid": "da43c590-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "192.168.199.2:5001/rabbitmq:3.6.8-management",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "rabbitmq",
+                        "ports": [
+                            {
+                                "containerPort": 15672,
+                                "name": "management",
+                                "protocol": "TCP"
+                            },
+                            {
+                                "containerPort": 5672,
+                                "name": "rabbitmq",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "CHOWN",
+                                    "SETGID",
+                                    "SETUID",
+                                    "DAC_OVERRIDE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:20Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:48Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:48Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:20Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://e90d78b478e7d4e3641fcd3c377bf25d8e3cb5d1beab9ccf11c2f6e02faa5484",
+                        "image": "192.168.199.2:5001/rabbitmq:3.6.8-management",
+                        "imageID": "docker-pullable://192.168.199.2:5001/rabbitmq@sha256:e7de5c8206d1e918d6e24f9cc6be22e71a47bddb5fd4e1e71c715b4ae4bf0801",
+                        "lastState": {},
+                        "name": "rabbitmq",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:48Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.8",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:20Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "annotations": {
+                    "prometheus.io.scrape": "false"
+                },
+                "creationTimestamp": "2021-04-18T01:54:39Z",
+                "generateName": "session-db-5b69d76c6b-",
+                "labels": {
+                    "name": "session-db",
+                    "pod-template-hash": "5b69d76c6b"
+                },
+                "name": "session-db-5b69d76c6b-j7pjz",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "session-db-5b69d76c6b",
+                        "uid": "da87b5e9-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "361523",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/session-db-5b69d76c6b-j7pjz",
+                "uid": "09446f45-9fe9-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "192.168.199.2:5001/redis:alpine",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "session-db",
+                        "ports": [
+                            {
+                                "containerPort": 6379,
+                                "name": "redis",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "CHOWN",
+                                    "SETGID",
+                                    "SETUID"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:54:44Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:54:59Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:54:59Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T01:54:39Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://58948ff32902e5c50b0b6a168d0f609ede14b2caec53df9dd9aeed92eddd68f6",
+                        "image": "192.168.199.2:5001/redis:alpine",
+                        "imageID": "docker-pullable://192.168.199.2:5001/redis@sha256:a6812012fdaba1376104e41ea41ebe0f1a50705c02ee45f9cf483ca835e3a101",
+                        "lastState": {},
+                        "name": "session-db",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T01:54:58Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.22",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-18T01:54:44Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-18T03:24:39Z",
+                "generateName": "shipping-67778bc856-",
+                "labels": {
+                    "name": "shipping",
+                    "pod-template-hash": "67778bc856"
+                },
+                "name": "shipping-67778bc856-29xpr",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "shipping-67778bc856",
+                        "uid": "dac4ac64-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "369695",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/shipping-67778bc856-29xpr",
+                "uid": "9baa025f-9ff5-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "ZIPKIN",
+                                "value": "zipkin.jaeger.svc.cluster.local"
+                            },
+                            {
+                                "name": "JAVA_OPTS",
+                                "value": "-Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/shipping:0.4.8",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "shipping",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T03:24:39Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T03:24:43Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T03:24:43Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-18T03:24:39Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://5eb6472ed3661b8371576f6c63385dea14794840e7d02092ca1203a60090da59",
+                        "image": "192.168.199.2:5001/weaveworksdemos/shipping:0.4.8",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/shipping@sha256:e5d2d620b4c4b5ea9bb974b6cc9183ac6ee6fd03c49fb3fde7dd917d08803e06",
+                        "lastState": {},
+                        "name": "shipping",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-18T03:24:42Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.23",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-18T03:24:39Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:22Z",
+                "generateName": "user-6b864745d6-",
+                "labels": {
+                    "name": "user",
+                    "pod-template-hash": "6b864745d6"
+                },
+                "name": "user-6b864745d6-4q9sw",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "user-6b864745d6",
+                        "uid": "db6353ab-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "3050",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/user-6b864745d6-4q9sw",
+                "uid": "db6481f7-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "env": [
+                            {
+                                "name": "mongo",
+                                "value": "user-db:27017"
+                            }
+                        ],
+                        "image": "192.168.199.2:5001/weaveworksdemos/user:0.4.7",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "user",
+                        "ports": [
+                            {
+                                "containerPort": 80,
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "NET_BIND_SERVICE"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true,
+                            "runAsNonRoot": true,
+                            "runAsUser": 10001
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.33",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:36:01Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:36:01Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://a3f1e27dcaf6ff83bf7451ad15519ae52a3ea746e780f2e629b13b40dd31d704",
+                        "image": "192.168.199.2:5001/weaveworksdemos/user:0.4.7",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/user@sha256:2ffccc332963c89e035fea52201012208bf62df43a55fe461ad6598a5c757ab7",
+                        "lastState": {},
+                        "name": "user",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:36:01Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.33",
+                "phase": "Running",
+                "podIP": "172.20.2.10",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:22Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2021-04-15T07:33:22Z",
+                "generateName": "user-db-8fc7587b6-",
+                "labels": {
+                    "name": "user-db",
+                    "pod-template-hash": "8fc7587b6"
+                },
+                "name": "user-db-8fc7587b6-6ffpv",
+                "namespace": "sock-shop",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "apps/v1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "user-db-8fc7587b6",
+                        "uid": "db126afa-9dbc-11eb-b7f7-002481eeda4c"
+                    }
+                ],
+                "resourceVersion": "2857",
+                "selfLink": "/api/v1/namespaces/sock-shop/pods/user-db-8fc7587b6-6ffpv",
+                "uid": "db246c3d-9dbc-11eb-b7f7-002481eeda4c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "192.168.199.2:5001/weaveworksdemos/user-db:0.3.0",
+                        "imagePullPolicy": "IfNotPresent",
+                        "name": "user-db",
+                        "ports": [
+                            {
+                                "containerPort": 27017,
+                                "name": "mongo",
+                                "protocol": "TCP"
+                            }
+                        ],
+                        "resources": {},
+                        "securityContext": {
+                            "capabilities": {
+                                "add": [
+                                    "CHOWN",
+                                    "SETGID",
+                                    "SETUID"
+                                ],
+                                "drop": [
+                                    "all"
+                                ]
+                            },
+                            "procMount": "Default",
+                            "readOnlyRootFilesystem": true
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/tmp",
+                                "name": "tmp-volume"
+                            },
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-t576n",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "enableServiceLinks": true,
+                "nodeName": "192.168.199.35",
+                "nodeSelector": {
+                    "beta.kubernetes.io/os": "linux"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "volumes": [
+                    {
+                        "emptyDir": {
+                            "medium": "Memory"
+                        },
+                        "name": "tmp-volume"
+                    },
+                    {
+                        "name": "default-token-t576n",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-t576n"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:13Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:35:13Z",
+                        "status": "True",
+                        "type": "ContainersReady"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2021-04-15T07:33:22Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://04eebb41a5d96a348d36013224342e1fb2b4b332291fc0ec0e4fe1c51ed448d7",
+                        "image": "192.168.199.2:5001/weaveworksdemos/user-db:0.3.0",
+                        "imageID": "docker-pullable://192.168.199.2:5001/weaveworksdemos/user-db@sha256:103ce9b1de00c3ffe5bf23a3ed6fcbfe2a459986e7f80fa5f77c90bc31f32227",
+                        "lastState": {},
+                        "name": "user-db",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2021-04-15T07:35:13Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "192.168.199.35",
+                "phase": "Running",
+                "podIP": "172.20.3.11",
+                "qosClass": "BestEffort",
+                "startTime": "2021-04-15T07:33:22Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
