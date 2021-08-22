@@ -54,7 +54,7 @@ env:
       - metadata///name
   prefix:
     property-type: value
-    property-value: http://www.huawei.com/uvc/pod/
+    property-value: http://uvc05/pod/
 
 base:
   id:
@@ -78,44 +78,41 @@ base:
 
 property:
   query:
-    property-type: separator
     traffic:
-      property-type: separator
       receivedPacketRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       transmittedPacketRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       receivedPacketDropRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       transmittedPacketDropRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
     resource:
-      property-type: separator
       CPUUsage:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       memoryUsage:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
@@ -140,12 +137,58 @@ property:
         property-find-str:
           - status///phase
 
+  query_range:
+    traffic:
+      receivedPacketRate:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      transmittedPacketRate:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      receivedPacketDropRate:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      transmittedPacketDropRate:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+
+    resource:
+      CPUUsage:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      memoryUsage:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      loggingList:
+        property-type: logging
+        property-query-address: $$global_logging_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+
 relationship:
   supports:
-    entity_type: Deployment
+    entity-type: deployment
     filter: metadata///labels >>>> selector
     direction: forward
   is_deployed_in:
-    entity_type: Node
+    entity-type: node
     filter: status///hostIP ==== property///query///resource///nodeIP
     direction: forward

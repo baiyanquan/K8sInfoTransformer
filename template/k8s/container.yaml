@@ -57,7 +57,19 @@ env:
       - name
   prefix:
     property-type: value
-    property-value: http://www.huawei.com/uvc/container/
+    property-value: http://uvc05/container/
+  namespace:
+    property-type: connector
+    relation-kind: contains
+    entity-property-find-str: property///query///resource///namespace
+  serviceName:
+    property-type: connector
+    relation-kind: contains
+    entity-property-find-str: property///query///resource///serviceName
+  podName:
+    property-type: connector
+    relation-kind: contains
+    entity-property-find-str: property///query///resource///podName
 
 base:
   id:
@@ -76,56 +88,52 @@ base:
     property-value: ""
   label:
     property-type: value
-    property-value:
-      - Container
+    property-value: Container
 
 property:
   query:
-    property-type: separator
     traffic:
-      property-type: separator
       receivedPacketRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       transmittedPacketRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       receivedPacketDropRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       transmittedPacketDropRate:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
     resource:
-      property-type: separator
       CPUUsage:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$sum by (container_name) (rate(container_cpu_usage_seconds_total{job="kubelet", cluster="", namespace="$$namespace$$", image!="", pod_name="$$podName$$", container_name=~"$$name$$", container_name!="POD"}[1m]))
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       memoryUsage:
         property-type: metrics
-        property-query-address: ""
+        property-query-address: $$global_metrics_query$$
         property-query-type: GET
         property-query-params: ""
         property-unit: ""
       namespace:
-        property-type: config
-        property-find-str:
-          - metadata///namespace
+        property-type: connector
+        relation-kind: contains
+        entity-property-find-str: property///query///resource///namespace
       serviceName:
         property-type: connector
         relation-kind: contains
@@ -148,17 +156,17 @@ property:
           - state
       message:
         property-type: logging
-        property-query-address: ""
+        property-query-address: $$global_logging_query$$
         property-query-type: GET
         property-query-params: ""
       errorCode:
         property-type: logging
-        property-query-address: ""
+        property-query-address: $$global_logging_query$$
         property-query-type: GET
         property-query-params: ""
       errorMessage:
         property-type: logging
-        property-query-address: ""
+        property-query-address: $$global_logging_query$$
         property-query-type: GET
         property-query-params: ""
       exitCode:
@@ -167,17 +175,73 @@ property:
           - state///terminated///exitCode
       startResult:
         property-type: logging
-        property-query-address: ""
+        property-query-address: $$global_logging_query$$
         property-query-type: GET
         property-query-params: ""
       lastStartTime:
         property-type: logging
-        property-query-address: ""
+        property-query-address: $$global_logging_query$$
+        property-query-type: GET
+        property-query-params: ""
+  query_range:
+    traffic:
+      networkTransmitted:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      networkDropped:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+    resource:
+      CPUUtilization:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      CPUSaturation:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      memUtilization:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      memSaturation:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      diskUtilization:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      diskSaturation:
+        property-type: metrics
+        property-query-address: $$global_metrics_query_range$$
+        property-query-type: GET
+        property-query-params: ""
+        property-unit: ""
+      loggingList:
+        property-type: logging
+        property-query-address: $$global_logging_query_range$$
         property-query-type: GET
         property-query-params: ""
 
 relationship:
   contains:
-    entity_type: Pod
+    entity-type: pod
     filter: ...///metadata///uid ==== id
     direction: reverse

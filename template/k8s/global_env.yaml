@@ -1,0 +1,7 @@
+global_metrics_query: http://10.60.38.174:31003/api/v1/query?query=
+global_metrics_query_range: http://10.60.38.174:31003/api/v1/query_range?query=
+__global_interval: 1m
+global_logging_query: http://10.60.38.174:31004/api/v1/query
+global_logging_query_range: http://10.60.38.174:31004/api/v1/query_range
+global_tracing_query: http://10.60.38.174:31004/api/v1/query
+global_tracing_query_range: http://10.60.38.174:31004/api/v1/query_range

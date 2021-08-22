@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, abort, request
 from service.k8s_data_transformer import K8sDataTransformer,K8sDataLoader
 from service.k8s_observer import K8sObserver,K8sDataWriter
-import  time
+import time
 app = Flask(__name__)
 
 

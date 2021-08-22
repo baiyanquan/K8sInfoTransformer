@@ -3,215 +3,58 @@ from dao.k8s_data_loader import K8sDataLoader
 from dao.json_result_writer import JsonResultWriter
 from utils.utils import Utils
 from collections import OrderedDict
+from service.k8s_data_template_matching import K8sDataTemplateMatching
+from service.k8s_data_filter import K8sDataFilter
+from service.k8s_data_expansion import K8sDataExpansion
 from datetime import datetime
 
 
 class K8sDataTransformer:
     def __init__(self):
-        self.parse_template = dict()
-        self.load_parse_template()
+        # 解析模板准备
+        self.parse_template = ParseTemplateLoader.load_parse_template()
+        self.env_dict = ParseTemplateLoader.load_global_env()
+
         self.node_dict = OrderedDict()
         self.link_list = []
         self.arg_dict = dict()
         pass
 
     def transform_k8s_data(self, time):
+        # 传递过来的时间可能不是简化版本的时间，一律进行过滤处理，然后获取对应时刻k8s的原始信息
         simplified_time = str(time).replace(" ", "_").replace("-", "").replace(":", "")
         k8s_data = K8sDataLoader.load_k8s_data(simplified_time)
-        for resource_type, resource_items in k8s_data.items():
-            clean_resource_type = str(resource_type).split("__")[-1]
-            for item in resource_items:
-                self.parse_resource_item(item, self.parse_template[clean_resource_type])
+
+        etime_str = simplified_time.replace("_", " ")
+        etime_str = etime_str[0:4] + '-' + etime_str[4:6] + '-' + etime_str[6:8] + " " + etime_str[9:11] + ":" + etime_str[11:13] + ":" + etime_str[13:15]
+        etime = Utils.datetime_timestamp(etime_str)
+
+        # 构建出全部k8s信息的实体、关系dict
+        result_dict = K8sDataTemplateMatching.template_matching(k8s_data, self.parse_template, self.env_dict, etime)
+
+        # # 根据场景筛选出关键的实体、关系，场景为sdre_reset和sdr_p2p_network_loss，改变scenario的值即可切换，然后进行数据增强
+        # scenario = "sdre_reset"
+        # if scenario == "sdre_reset":
+        #     result_dict = K8sDataFilter.sdr_reset_filter(result_dict)
+        #     result_dict = K8sDataExpansion.add_sdre_component(result_dict)
+        # elif scenario == "sdr_p2p_network_loss":
+        #     result_dict = K8sDataFilter.sdr_p2p_network_loss_filter(result_dict)
+        #     result_dict = K8sDataExpansion.mock_vusn_service(result_dict)
+        #     result_dict = K8sDataExpansion.add_sdre_component(result_dict)
+        #     result_dict = K8sDataExpansion.add_business_component(result_dict)
+
         json_result = dict()
         json_result["nodes"] = []
-        for key, value in self.node_dict.items():
+        for key, value in result_dict["nodes"].items():
             json_result["nodes"].extend(value)
-        json_result["links"] = self.link_list
+        json_result["links"] = []
+        for key, value in result_dict["links"].items():
+            json_result["links"].extend(value)
 
         JsonResultWriter.write_json_data(simplified_time, json_result)
 
-        for clean_resource_type in self.parse_template.keys():
-            self.arg_dict[clean_resource_type] = self.parse_template[clean_resource_type]["arg"]
-
-        #  加了返回json语句
         return json_result
 
-    def load_parse_template(self):
-        self.parse_template = ParseTemplateLoader.load_parse_template()
 
-    def parse_resource_item(self, item, parse_template):
-        node_item = dict()
-
-        # 1. env
-        env_dict = dict()
-        for env_key in parse_template["env"]:
-            if "///" in parse_template["env"][env_key]:
-                indices = str(parse_template["env"][env_key]).split("///")[1:]
-                value = item
-                find_flag = True
-                for index in indices:
-                    if index in value:
-                        value = value[index]
-                    else:
-                        print("Invalid index of base value:" + parse_template["env"][env_key])
-                        find_flag = False
-                if find_flag:
-                    env_dict[env_key] = value
-            else:
-                env_dict[env_key] = parse_template["env"][env_key]
-
-        # 2. base
-        for base_key in parse_template["base"]:
-            if "///" in str(parse_template["base"][base_key]):
-                indices = str(parse_template["base"][base_key]).split("///")[1:]
-                value = item
-                find_flag = True
-                for index in indices:
-                    if index in value:
-                        value = value[index]
-                    else:
-                        print("Invalid index of base value:" + parse_template["base"][base_key])
-                        find_flag = False
-                if find_flag:
-                    prefix = str(parse_template["base"][base_key]).split("///")[0]
-                    if "$$" in prefix:
-                        prefix = env_dict[prefix.replace("$$", "")]
-                    node_item[base_key] = prefix + value
-                    if "time" in base_key:
-                        node_item[base_key] = Utils.datetime_timestamp(node_item[base_key].replace("T", " ").replace("Z", ""))
-            else:
-                value = parse_template["base"][base_key]
-                node_item[base_key] = self.transform_env(value, env_dict)
-
-        # 3. property
-        node_item["property"] = dict()
-        # 3.1 configuration
-        node_item["property"]["configuration"] = dict()
-        for configuration_key in parse_template["property"]["configuration"]:
-            if "///" in parse_template["property"]["configuration"][configuration_key]:
-                indices = str(parse_template["property"]["configuration"][configuration_key]).split("///")[1:]
-                value = item
-                find_flag = True
-                for index in indices:
-                    if index in value:
-                        value = value[index]
-                    else:
-                        print("Invalid index of property value:" + parse_template["property"]["configuration"][configuration_key])
-                        find_flag = False
-                if find_flag:
-                    node_item["property"]["configuration"][configuration_key] = value
-            else:
-                value = parse_template["property"]["configuration"][configuration_key]
-                node_item["property"]["configuration"][configuration_key] = self.transform_env(value, env_dict)
-        # 3.2 query
-        query_list = ["query", "query_range"]
-        for query_key in query_list:
-            node_item["property"][query_key] = dict()
-            for property_type in parse_template["property"][query_key]:
-                node_item["property"][query_key][property_type] = []
-                if not isinstance(parse_template["property"][query_key][property_type], dict):
-                    continue
-                for query_property, details in parse_template["property"][query_key][property_type].items():
-                    temp = dict()
-                    if isinstance(details, dict):
-                        for key, value in details.items():
-                            temp[key] = self.transform_env(value, env_dict)
-                    temp["name"] = query_property
-                    node_item["property"][query_key][property_type].append(temp)
-
-        # 3.3 sub_entity
-        if "sub_entity" in parse_template.keys():
-            indices = str(parse_template["sub_entity"]["position"]).split("///")[1:]
-            value = item
-            find_flag = True
-            for index in indices:
-                if index in value:
-                    value = value[index]
-                else:
-                    print("Invalid index of sub_entity value:" + parse_template["sub_entity"]["position"])
-                    find_flag = False
-            if find_flag:
-                sub_entity_list = value
-                if not isinstance(sub_entity_list, list):
-                    print("Invalid sub_entity_list:" + parse_template["sub_entity"][
-                        "position"])
-                else:
-                    for sub_entity in sub_entity_list:
-                        sub_entity_item = self.parse_resource_item(sub_entity, parse_template["sub_entity"])
-                        self.establish_link(node_item, sub_entity_item, parse_template["sub_entity"]["sub_relationship"])
-
-        # 4 relationship
-        if "relationship" in parse_template.keys() and isinstance(parse_template["relationship"], dict):
-            for relationship_name, details in parse_template["relationship"].items():
-                target_entity_list = []
-                constraints = dict()
-                for detail_key in details.keys():
-                    if detail_key == "entity_type":
-                        if details[detail_key] in self.node_dict.keys():
-                            target_entity_list = self.node_dict[details[detail_key]]
-                        else:
-                            print("Read order error")
-                    else:
-                        if "///" in details[detail_key]:
-                            indices = str(details[detail_key]).split("///")[1:]
-                            value = item
-                            find_flag = True
-                            for index in indices:
-                                if index in value:
-                                    value = value[index]
-                                else:
-                                    print("Invalid index of relationship value:" + details[detail_key])
-                                    find_flag = False
-                            if find_flag:
-                                prefix = str(details[detail_key]).split("///")[0]
-                                if "$$" in prefix:
-                                    prefix = env_dict[prefix.replace("$$", "")]
-                                constraints[detail_key] = prefix + value
-                        else:
-                            value = details[detail_key]
-                            constraints[detail_key] = self.transform_env(value, env_dict)
-                pass
-                for entity in target_entity_list:
-                    target = True
-                    for key, constraint_value in constraints.items():
-                        indices = key.split("///")[1:]
-                        value = entity
-                        find_flag = True
-                        for index in indices:
-                            if index in value:
-                                value = value[index]
-                            else:
-                                print("Invalid relationship index in target entity:" + key)
-                                find_flag = False
-                        if find_flag:
-                            if value != constraint_value:
-                                target = False
-                                break
-                    if target:
-                        self.establish_link(entity, node_item, relationship_name)
-
-        if node_item["label"] not in self.node_dict.keys():
-            self.node_dict[node_item["label"]] = []
-        self.node_dict[node_item["label"]].append(node_item)
-        return node_item
-
-    @staticmethod
-    def transform_env(value, env_dict):
-        if "$$" in str(value):
-            temp_list = str(value).split("$$")
-            i = 1
-            while i < len(temp_list) - 1:
-                temp_list[i] = env_dict[temp_list[i]]
-                i += 2
-            value = ''.join(temp_list)
-        return value
-
-    def establish_link(self, t_item, s_item, relationship):
-        link = dict()
-        link["stime"] = max(t_item["stime"], t_item["stime"])
-        link["etime"] = 1645539492
-        link["name"] = relationship
-        link["label"] = relationship
-        link["tid"] = t_item["id"]
-        link["sid"] = s_item["id"]
-        self.link_list.append(link.copy())
+k8s_data_transformer = K8sDataTransformer()
+k8s_data_transformer.transform_k8s_data("20210215_155600")

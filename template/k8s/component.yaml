@@ -43,7 +43,6 @@
 # 3. property-type为config的属性中，property-value包含...///，...表示退回info_position的上一级查找属性
 
 info_position:
-  - items
 
 env:
   id:
@@ -56,7 +55,7 @@ env:
       - name
   prefix:
     property-type: value
-    property-value: http://www.huawei.com/uvc/component/
+    property-value: http://uvc05/component/
 
 base:
   id:
@@ -81,9 +80,7 @@ base:
 
 property:
   query:
-    property-type: separator
     business:
-      property-type: separator
       status:
         property-type: logging
         property-query-address: ""
@@ -110,7 +107,6 @@ property:
         property-query-type: GET
         property-query-params: ""
     traffic:
-      property-type: separator
       sendTrafficInfoRate:
         property-type: metrics
         property-query-address: ""
@@ -124,7 +120,6 @@ property:
         property-query-params: ""
         property-unit: ""
     resource:
-      property-type: separator
       namespace:
         property-type: connector
         relation-kind: is_composed_of
@@ -150,8 +145,9 @@ property:
         property-find-str:
           - priority
 
+
 relationship:
   is_composed_of:
-    entity_type: Container
+    entity-type: container
     filter: ...///metadata///uid ==== id
     direction: reverse

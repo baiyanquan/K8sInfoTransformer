@@ -54,7 +54,7 @@ env:
       - metadata///name
   prefix:
     property-type: value
-    property-value: http://www.huawei.com/uvc/deployment/
+    property-value: http://uvc05/deployment/
 
 base:
   id:
@@ -83,9 +83,7 @@ base:
 
 property:
   query:
-    property-type: separator
     resource:
-      property-type: separator
       namespace:
         property-type: config
         property-find-str:
@@ -101,6 +99,6 @@ property:
 
 relationship:
   provides:
-    entity_type: Service
-    filter: metadata///labels >>>> selector
+    entity-type: service
+    filter: metadata///labels <<<< selector
     direction: forward

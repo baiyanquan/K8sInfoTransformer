@@ -1,0 +1,18 @@
+{
+  "udf": 0,
+  "acs": 0,
+  "ccellbase": 1,
+  "patch": 1,
+  "storebypass": 1,
+  "comp_log": 2,
+  "hafe": 2,
+  "bdrcomp": 2,
+  "psm": 3,
+  "pae": 4,
+  "haf": 5,
+  "mss": 5,
+  "ombasecf": 5,
+  "bdr_pae": 6,
+  "sdrs": 7,
+  "cpa": 7
+}

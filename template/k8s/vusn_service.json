@@ -1,0 +1,12 @@
+{
+  "id": "4716007-3c13-3cze-adzb-810a45b46520",
+  "name": "http://uvc05/service/vusn-pod",
+  "stime": "",
+  "etime": "",
+  "label": "Service",
+  "namespace": "uvc05",
+  "property": {
+    "query": {},
+    "query_range": {}
+  }
+}

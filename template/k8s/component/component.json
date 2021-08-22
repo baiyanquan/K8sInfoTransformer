@@ -9,62 +9,78 @@
       "business": {
         "status": {
           "property-type": "logging",
-          "property-query-address": "",
+          "property-query-address": "/property",
           "property-query-type": "GET",
           "property-query-params": {}
         },
         "statusCode": {
           "property-type": "logging",
-          "property-query-address": "",
+          "property-query-address": "/property",
           "property-query-type": "GET",
           "property-query-params": {}
         },
         "errorCode": {
           "property-type": "logging",
-          "property-query-address": "",
+          "property-query-address": "/property",
           "property-query-type": "GET",
           "property-query-params": {}
         },
         "message": {
           "property-type": "logging",
-          "property-query-address": "",
+          "property-query-address": "/property",
           "property-query-type": "GET",
           "property-query-params": {}
         },
         "errorMessage": {
           "property-type": "logging",
-          "property-query-address": "",
+          "property-query-address": "/property",
           "property-query-type": "GET",
           "property-query-params": {}
         }
       },
       "traffic": {
         "sendTrafficInfoRate(success)": {
-          "property-type": "logging",
-          "property-query-address": "",
+          "property-type": "metrics",
+          "property-query-address": "/property",
           "property-query-type": "GET",
-          "property-query-params": {},
+          "property-query-params": {
+            "resource": {
+              "status": "succeed"
+            }
+          },
           "property-query-unit": ""
         },
         "sendTrafficInfoRate(failure)": {
-          "property-type": "logging",
-          "property-query-address": "",
+          "property-type": "metrics",
+          "property-query-address": "/property",
           "property-query-type": "GET",
-          "property-query-params": {},
+          "property-query-params": {
+            "resource": {
+              "status": "failed"
+            }
+          },
           "property-query-unit": ""
         },
         "receiveTrafficInfoRate(success)": {
-          "property-type": "logging",
-          "property-query-address": "",
+          "property-type": "metrics",
+          "property-query-address": "/property",
           "property-query-type": "GET",
-          "property-query-params": {},
+          "property-query-params": {
+            "resource": {
+              "status": "succeed"
+            }
+          },
           "property-query-unit": ""
         },
         "receiveTrafficInfoRate(failure)": {
-          "property-type": "logging",
-          "property-query-address": "",
+          "property-type": "metrics",
+          "property-query-address": "/property",
           "property-query-type": "GET",
-          "property-query-params": {},
+          "property-query-params": {
+            "resource": {
+              "status": "failed"
+            }
+          },
           "property-query-unit": ""
         }
       },
@@ -73,11 +89,65 @@
         "serviceName": "",
         "podName": "",
         "containerId": "",
-        "componentName": ""
+        "componentName": "",
+        "priority": ""
       }
     },
     "query_range": {
-
+      "traffic": {
+        "sendTrafficInfoRate(success)": {
+          "property-type": "metrics",
+          "property-query-address": "/list",
+          "property-query-type": "GET",
+          "property-query-params": {
+            "resource": {
+              "status": "succeed"
+            }
+          },
+          "property-query-unit": ""
+        },
+        "sendTrafficInfoRate(failure)": {
+          "property-type": "metrics",
+          "property-query-address": "/list",
+          "property-query-type": "GET",
+          "property-query-params": {
+            "resource": {
+              "status": "failed"
+            }
+          },
+          "property-query-unit": ""
+        },
+        "receiveTrafficInfoRate(success)": {
+          "property-type": "metrics",
+          "property-query-address": "/list",
+          "property-query-type": "GET",
+          "property-query-params": {
+            "resource": {
+              "status": "succeed"
+            }
+          },
+          "property-query-unit": ""
+        },
+        "receiveTrafficInfoRate(failure)": {
+          "property-type": "metrics",
+          "property-query-address": "/list",
+          "property-query-type": "GET",
+          "property-query-params": {
+            "resource": {
+              "status": "failed"
+            }
+          },
+          "property-query-unit": ""
+        }
+      },
+      "business": {
+        "loggingList": {
+          "property-type": "logging",
+          "property-query-address": "/list",
+          "property-query-type": "GET",
+          "property-query-params": {}
+        }
+      }
     }
   }
 }

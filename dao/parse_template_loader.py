@@ -8,30 +8,27 @@ class ParseTemplateLoader:
         pass
 
     @staticmethod
+    def load_global_env():
+        template_base_path = ParseTemplateLoader.get_base_path()
+        template_path = os.path.join(template_base_path, "global_env.yaml")
+        return ParseTemplateLoader.parse_template(template_path)
+
+    @staticmethod
     def load_parse_template():
         template_base_path = ParseTemplateLoader.get_base_path()
 
         result = {}
 
-        if not os.path.exists(template_base_path):
-            print("Wrong template url!")
-            return result
+        config_loader = ConfigLoader()
+        template_file_list = config_loader.get_template_file()
 
-        template_list = []
-        resource_type_list = ConfigLoader.load_resource_config()
-        template_list.extend(resource_type_list["global_resource"]["resource_type"])
-        template_list.extend(resource_type_list["local_resource"]["resource_type"])
-
-        for template in template_list:
-            template_path = os.path.join(template_base_path, template + ".yaml")
-            if not os.path.exists(template_path):
-                print("Invalid path!")
-                continue
-            elif os.path.isdir(template_path):
-                print("Cannot parse directory in k8s templates!")
-                continue
+        for resource_type, template_file in template_file_list.items():
+            template_path = os.path.join(template_base_path, template_file)
+            if os.path.exists(template_path):
+                result[resource_type] = ParseTemplateLoader.parse_template(template_path)
             else:
-                result[template.replace(".yaml", "")] = ParseTemplateLoader.parse_template(template_path)
+                print("Invalid path " + str(template_path))
+                continue
 
         return result
 
@@ -52,4 +49,11 @@ class ParseTemplateLoader:
     def get_base_path():
         current_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
         template_base_path = os.path.join(current_path, 'template')
-        return os.path.join(template_base_path, 'k8s')
+        template_base_path = os.path.join(template_base_path, 'k8s')
+        if not os.path.exists(template_base_path):
+            print("Invalid template url: " + template_base_path)
+            return ""
+        return template_base_path
+
+
+ParseTemplateLoader.load_parse_template()
